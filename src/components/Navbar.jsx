@@ -1,5 +1,6 @@
 // AppNavbar.jsx
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function AppNavbar() {
   const collapseRef = useRef(null)
@@ -20,7 +21,7 @@ export default function AppNavbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <div className="container px-4 ">
-        <a className="navbar-brand" href="#page-top">The Daily Nugget</a>
+        <Link className="navbar-brand" to="/">The Daily Nugget</Link>
 
         <button
           className="navbar-toggler"
@@ -36,8 +37,15 @@ export default function AppNavbar() {
 
         <div className="collapse navbar-collapse" id="navbarResponsive" ref={collapseRef}>
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item"><a className="nav-link" href="#about" onClick={closeMenu}>About</a></li>
-            <li className="nav-item"><a className="nav-link" href="#contact" onClick={closeMenu}>Contact</a></li>
+            <li className="nav-item">
+              <Link 
+                className="nav-link" 
+                to={{ pathname: "/", hash: "#about" }} 
+                onClick={closeMenu}>
+                  About
+              </Link></li>
+            <li className="nav-item"><Link className="nav-link" to={{ pathname: "/", hash: "#contact" }} onClick={closeMenu}>Contact</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/privacy-policy" onClick={closeMenu}>Privacy Policy</Link></li>
           </ul>
         </div>
       </div>

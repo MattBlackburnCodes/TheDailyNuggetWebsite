@@ -10841,3 +10841,13 @@ section {
 body {
   overflow-y: auto !important;
 }
+
+.policy-list,
+.policy-sublist{
+  list-style: none;
+  padding-left: 0;
+}
+
+.policy-sublist {
+  margin-left: 1.5rem;
+}
