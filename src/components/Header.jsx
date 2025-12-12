@@ -1,10 +1,10 @@
-import nugget from '../assets/TheDailyNuggetRaw.png'
+import nugget from '../assets/New_App_Image.png'
 import appLogo from '../assets/AppStoreImage.svg'
 
 export default function Header() {
     return (
         <>
-            <header className="bg-primary bg-gradient text-white hero">
+            <header className="bg-blackburn text-gold hero">
                 <div className="container px-4 text-center">
                     <h1 className="fw-bolder">Welcome to The Daily Nugget</h1>
                     <p className="lead">Daily Nuggets of Quotes • Facts • Affirmations • Jokes.</p>

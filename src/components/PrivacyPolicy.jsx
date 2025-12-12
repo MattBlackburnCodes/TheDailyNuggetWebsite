@@ -1,8 +1,8 @@
 export default function PrivacyPolicy() {
     return (
-        <div className="container px-4 pt-5 my-5">
+        <div className="px-5 pb-5 pt-5 bg-blackburn-gray text-gold">
             
-            <h1>Privacy Policy</h1>
+            <h1 className="pt-5">Privacy Policy</h1>
             <p>Last updated: December 9, 2025</p>
 
             <p>

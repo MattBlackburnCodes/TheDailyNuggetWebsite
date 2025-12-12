@@ -6,8 +6,8 @@ export default function ContactForm() {
       return <p className='text-success lead'>Your nugget just made it into the bucket! Thanks for sharing.</p>;
   }
   return (
-    <form onSubmit={handleSubmit}>
-        <label htmlFor="name" className="form-label lead">
+    <form onSubmit={handleSubmit} className="">
+        <label htmlFor="name" className="form-label lead ">
             Name
         </label>
         <div className="mb-3">

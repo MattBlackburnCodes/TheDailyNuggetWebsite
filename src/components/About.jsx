@@ -1,9 +1,9 @@
 export default function About() {
     return (
-        <section id="about">
-            <div className="px-5">
-                <div className="row gx-4 justify-content-center">
-                    <div className="col-lg-8">
+        <section id="about" className="bg-blackburn-gray py-5">
+            <div className="px-5 ">
+                <div className="row gx-4 justify-content-center ">
+                    <div className="col-lg-8 text-gold ">
                         <h2>About The Daily Nugget</h2>
                         <p className="lead">Life gets busy, but sometimes all it takes is a little nugget of wisdom, laughter, or encouragement to reset your mindset. That’s why we created The Daily Nugget—a pocket-sized source of positivity and fun.</p>
                         <p className="lead">Every day, you’ll discover:</p>
