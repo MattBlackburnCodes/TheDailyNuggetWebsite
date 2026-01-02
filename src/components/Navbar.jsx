@@ -46,6 +46,7 @@ export default function AppNavbar() {
               </Link></li>
             <li className="nav-item "><Link className="nav-link text-gold" to={{ pathname: "/", hash: "#contact" }} onClick={closeMenu}>Contact</Link></li>
             <li className="nav-item"><Link className="nav-link text-gold" to="/privacy-policy" onClick={closeMenu}>Privacy Policy</Link></li>
+            <li className="nav-item"><Link className="nav-link text-gold" to="/merch" onClick={closeMenu}>Merch</Link></li>
           </ul>
         </div>
       </div>
