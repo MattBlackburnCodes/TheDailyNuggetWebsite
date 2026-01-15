@@ -4,10 +4,13 @@ import Header from './components/Header.jsx'
 import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import TodaysNuggetRow  from './components/HomePage/TodaysNuggetRow.jsx'
+import Ad from './components/HomePage/Ad.jsx'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import PrivacyPolicy from './components/PrivacyPolicy.jsx'
 import Merch from './components/Merch.jsx'
 import { useEffect } from 'react'
+
 
 export default function App() {
   // Scroll to hash fragment on route change
@@ -38,6 +41,8 @@ export default function App() {
         <Route path="/" element={
           <>
             <Header />
+            <TodaysNuggetRow />
+            <Ad />
             <About />
             <Contact />
           </>

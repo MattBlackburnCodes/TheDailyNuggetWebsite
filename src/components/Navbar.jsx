@@ -19,7 +19,7 @@ export default function AppNavbar() {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-blackburn fixed-top" id="mainNav">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-blackburn-black fixed-top" id="mainNav">
       <div className="container px-4 ">
         <Link className="navbar-brand text-gold" to="/">The Daily Nugget</Link>
 

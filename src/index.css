@@ -8147,7 +8147,7 @@ textarea.form-control-lg {
   --bs-text-opacity: 1;
 }
 
-.bg-blackburn {
+.bg-blackburn-black {
   --bs-bg-opacity: 1;
   background-color: #202224 !important;
 }
@@ -8155,6 +8155,11 @@ textarea.form-control-lg {
 .bg-blackburn-gray {
   --bs-bg-opacity: 1;
   background-color: #3A3E42 !important;
+}
+
+.bg-blackburn-dark-yellow {
+  --bs-bg-opacity: 1;
+  background-color: rgba(224,184,74,.15) !important;
 }
 
 .bg-primary {
