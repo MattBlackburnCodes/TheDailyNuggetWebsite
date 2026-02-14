@@ -21,7 +21,7 @@ export default function AppNavbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-blackburn-black fixed-top" id="mainNav">
       <div className="container px-4 ">
-        <Link className="navbar-brand text-gold" to="/">The Daily Nugget</Link>
+        <Link className="navbar-brand text-gold fw-bold" to="/">The Daily Nugget</Link>
 
         <button
           className="navbar-toggler"
@@ -37,16 +37,11 @@ export default function AppNavbar() {
 
         <div className="collapse navbar-collapse " id="navbarResponsive" ref={collapseRef}>
           <ul className="navbar-nav ms-auto ">
-            <li className="nav-item">
-              <Link 
-                className="nav-link text-gold" 
-                to={{ pathname: "/", hash: "#about" }} 
-                onClick={closeMenu}>
-                  About
-              </Link></li>
-            <li className="nav-item "><Link className="nav-link text-gold" to={{ pathname: "/", hash: "#contact" }} onClick={closeMenu}>Contact</Link></li>
-            <li className="nav-item"><Link className="nav-link text-gold" to="/privacy-policy" onClick={closeMenu}>Privacy Policy</Link></li>
-            <li className="nav-item"><Link className="nav-link text-gold" to="/merch" onClick={closeMenu}>Merch</Link></li>
+            <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/about" onClick={closeMenu}>About</Link></li>
+            <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/contact" onClick={closeMenu}>Contact</Link></li>
+            {/*<li className="nav-item"><Link className="nav-link text-gold fw-bold" to={{ pathname: "/", hash: "#contact" }} onClick={closeMenu}>Contact</Link></li>*/}
+            <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/privacy-policy" onClick={closeMenu}>Privacy Policy</Link></li>
+            <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/merch" onClick={closeMenu}>Merch</Link></li>
           </ul>
         </div>
       </div>
