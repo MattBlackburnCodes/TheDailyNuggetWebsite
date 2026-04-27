@@ -10,6 +10,11 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import PrivacyPolicy from './components/PrivacyPolicy.jsx'
 import Merch from './components/Merch.jsx'
 import { useEffect } from 'react'
+import Categories from './components/HomePage/Categories.jsx'
+import MerchSection from './components/HomePage/MerchSection.jsx'
+import ExploreCategory from './components/Pages/ExploreCategory.jsx'
+import DailyNuggetChallenge from './components/Pages/DailyNuggetChallenge.jsx'
+import Games from './components/Pages/Games.jsx'
 
 
 export default function App() {
@@ -43,12 +48,17 @@ export default function App() {
             <Header />
             <TodaysNuggetRow />
             <Ad />
-            <About />
-            <Contact />
+            <Categories />
+            <MerchSection />
           </>
         }/>
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/merch" element={<Merch />} />
+        <Route path="/games" element={<Games />} />
+        <Route path="/daily-nugget-challenge" element={<DailyNuggetChallenge />} />
+        <Route path="/explore/:categoryKey" element={<ExploreCategory />} />
       </Routes>
       <Footer />
     </Router>
