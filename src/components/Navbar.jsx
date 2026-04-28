@@ -1,8 +1,9 @@
 // AppNavbar.jsx
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function AppNavbar() {
+  const navRef = useRef(null)
   const collapseRef = useRef(null)
 
   // Initialize a Collapse instance once
@@ -12,14 +13,39 @@ export default function AppNavbar() {
     return () => inst?.dispose()
   }, [])
 
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     if (!collapseRef.current) return
     const inst = window.bootstrap.Collapse.getOrCreateInstance(collapseRef.current, { toggle: false })
     inst.hide()
-  }
+  }, [])
+
+  useEffect(() => {
+    const closeOnOutsideTap = (event) => {
+      if (!navRef.current || !collapseRef.current?.classList.contains('show')) return
+      if (!navRef.current.contains(event.target)) closeMenu()
+    }
+
+    const closeOnScroll = () => {
+      if (collapseRef.current?.classList.contains('show')) closeMenu()
+    }
+
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') closeMenu()
+    }
+
+    document.addEventListener('pointerdown', closeOnOutsideTap)
+    window.addEventListener('scroll', closeOnScroll, { passive: true })
+    document.addEventListener('keydown', closeOnEscape)
+
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutsideTap)
+      window.removeEventListener('scroll', closeOnScroll)
+      document.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [closeMenu])
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-blackburn-black fixed-top" id="mainNav">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-blackburn-black fixed-top" id="mainNav" ref={navRef}>
       <div className="container px-4 ">
         <Link className="navbar-brand text-gold fw-bold" to="/">The Daily Nugget</Link>
 

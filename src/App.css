@@ -40,6 +40,185 @@
   color: #888;
 }
 
+.about-page {
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+  padding: 6rem 1rem 4rem;
+}
+
+.about-page-content {
+  width: 100%;
+}
+
+.about-page h2 {
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.about-page .lead {
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.7;
+}
+
+.about-feature-panel {
+  background: rgba(32, 34, 36, 0.72);
+  border: 1px solid rgba(218, 165, 32, 0.28);
+  border-radius: 8px;
+  color: #f8f4e9;
+  padding: 1.5rem;
+}
+
+.about-feature-panel h3 {
+  color: #daa520;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.about-feature-panel ul {
+  display: grid;
+  gap: 0.8rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about-feature-panel li {
+  background: rgba(218, 165, 32, 0.12);
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+}
+
+.contact-page {
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+  padding: 6rem 1rem 4rem;
+}
+
+.contact-page-content {
+  width: 100%;
+}
+
+.contact-page h2 {
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.contact-page .lead {
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.7;
+}
+
+.contact-form-panel {
+  background: rgba(58, 62, 66, 0.72);
+  border: 1px solid rgba(218, 165, 32, 0.28);
+  border-radius: 8px;
+  color: #f8f4e9;
+  padding: 1.5rem;
+}
+
+.contact-form .form-label {
+  color: #daa520;
+  font-weight: 800;
+}
+
+.contact-form .form-control {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  min-height: 48px;
+}
+
+.contact-form textarea.form-control {
+  min-height: 150px;
+}
+
+.contact-form .form-control:focus {
+  border-color: #daa520;
+  box-shadow: 0 0 0 0.2rem rgba(218, 165, 32, 0.2);
+}
+
+.contact-success {
+  color: #9be7ad;
+  margin: 0;
+}
+
+.privacy-page {
+  min-height: 100vh;
+  padding: 6rem 1rem 4rem;
+}
+
+.privacy-page-content {
+  max-width: 1040px;
+}
+
+.privacy-hero,
+.privacy-policy-card {
+  background: rgba(32, 34, 36, 0.72);
+  border: 1px solid rgba(218, 165, 32, 0.28);
+  border-radius: 8px;
+  color: #f8f4e9;
+  padding: 1.5rem;
+}
+
+.privacy-hero {
+  margin-bottom: 1rem;
+}
+
+.privacy-hero h1 {
+  color: #daa520;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.privacy-hero p,
+.privacy-policy-card p,
+.privacy-policy-card li {
+  line-height: 1.7;
+}
+
+.privacy-updated {
+  color: rgba(255, 255, 255, 0.74);
+  font-weight: 700;
+}
+
+.privacy-policy-card {
+  display: grid;
+  gap: 1rem;
+  list-style-position: inside;
+  margin: 0;
+}
+
+.privacy-policy-card h2 {
+  color: #daa520;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  font-weight: 800;
+  margin-top: 0.25rem;
+}
+
+.privacy-policy-card h3 {
+  color: #f5d27a;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.privacy-policy-card ul,
+.privacy-policy-card ol {
+  margin-bottom: 1rem;
+}
+
+.privacy-policy-card > li {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
 .google-ad-wrapper {
   align-items: center;
   background: rgba(255, 255, 255, 0.04);
@@ -150,6 +329,26 @@
   text-transform: uppercase;
 }
 
+.game-mode-shell {
+  max-width: 940px;
+}
+
+.game-score-stack {
+  align-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.game-score-stack span {
+  background: rgba(218, 165, 32, 0.14);
+  border: 1px solid rgba(218, 165, 32, 0.22);
+  border-radius: 8px;
+  color: #f5d27a;
+  font-weight: 800;
+  padding: 0.65rem 0.85rem;
+}
+
 .challenge-page {
   background:
     radial-gradient(circle at 15% 12%, rgba(218, 165, 32, 0.22), transparent 28%),
@@ -161,7 +360,18 @@
 
 .challenge-shell {
   margin: 0 auto;
-  max-width: 940px;
+  max-width: 1180px;
+}
+
+.challenge-layout {
+  align-items: start;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) 180px;
+}
+
+.challenge-main {
+  min-width: 0;
 }
 
 .challenge-hero,
@@ -225,6 +435,31 @@
   text-align: center;
 }
 
+.challenge-mid-ad {
+  display: none;
+  margin-bottom: 1rem;
+  min-height: 54px;
+  padding: 0.45rem 0.8rem;
+}
+
+.challenge-mid-ad .google-ad-label {
+  margin-bottom: 0.15rem;
+}
+
+.challenge-mid-ad .adsbygoogle {
+  min-height: 32px;
+}
+
+.challenge-side-ad {
+  position: sticky;
+  top: 5.5rem;
+}
+
+.challenge-side-ad .google-ad-wrapper {
+  min-height: 360px;
+  padding: 0.75rem;
+}
+
 .challenge-card {
   padding: 1.5rem;
 }
@@ -282,6 +517,10 @@
   border-color: #e53e3e;
 }
 
+.challenge-option.is-selected {
+  border-color: #daa520;
+}
+
 .challenge-feedback {
   color: #fff;
   font-weight: 700;
@@ -321,6 +560,11 @@
   max-width: 620px;
 }
 
+.challenge-results-ad {
+  margin: 1.5rem auto;
+  max-width: 720px;
+}
+
 .challenge-actions {
   display: flex;
   flex-wrap: wrap;
@@ -328,12 +572,62 @@
   justify-content: center;
 }
 
+.challenge-share-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.challenge-share-link {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(218, 165, 32, 0.32);
+  border-radius: 8px;
+  color: #f8f4e9;
+  font-weight: 700;
+  min-height: 42px;
+  padding: 0.55rem 0.85rem;
+  text-decoration: none;
+}
+
+.challenge-share-link:hover {
+  background: rgba(218, 165, 32, 0.16);
+  color: #fff;
+}
+
+button.challenge-share-link {
+  cursor: pointer;
+}
+
 .challenge-share-status {
   color: rgba(255, 255, 255, 0.82);
   margin: 1rem 0 0;
 }
 
+.real-fake-options {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.real-or-fake-card blockquote {
+  margin-bottom: 1.5rem;
+}
+
 @media (max-width: 700px) {
+  .challenge-layout {
+    display: block;
+  }
+
+  .challenge-side-ad {
+    display: none;
+  }
+
+  .challenge-mid-ad {
+    display: flex;
+  }
+
   .games-hero,
   .challenge-hero {
     grid-template-columns: 1fr;
@@ -347,7 +641,12 @@
   }
 
   .challenge-status-row,
-  .challenge-options {
+  .challenge-options,
+  .real-fake-options {
     grid-template-columns: 1fr;
+  }
+
+  .game-score-stack {
+    align-items: stretch;
   }
 }

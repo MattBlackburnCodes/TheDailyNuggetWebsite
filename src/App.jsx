@@ -14,7 +14,9 @@ import Categories from './components/HomePage/Categories.jsx'
 import MerchSection from './components/HomePage/MerchSection.jsx'
 import ExploreCategory from './components/Pages/ExploreCategory.jsx'
 import DailyNuggetChallenge from './components/Pages/DailyNuggetChallenge.jsx'
-import Games from './components/Pages/Games.jsx'
+import DailyNuggetGames from './components/Pages/DailyNuggetGames.jsx'
+import SurvivalMode from './components/Pages/SurvivalMode.jsx'
+import RealOrFakeMode from './components/Pages/RealOrFakeMode.jsx'
 
 
 export default function App() {
@@ -56,7 +58,10 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/merch" element={<Merch />} />
-        <Route path="/games" element={<Games />} />
+        <Route path="/games" element={<DailyNuggetGames />} />
+        <Route path="/games/daily-challenge" element={<DailyNuggetChallenge />} />
+        <Route path="/games/survival" element={<SurvivalMode />} />
+        <Route path="/games/real-or-fake" element={<RealOrFakeMode />} />
         <Route path="/daily-nugget-challenge" element={<DailyNuggetChallenge />} />
         <Route path="/explore/:categoryKey" element={<ExploreCategory />} />
       </Routes>

@@ -1,22 +1,25 @@
 export default function PrivacyPolicy() {
     return (
-        <div className="px-5 pb-5 pt-5 bg-blackburn-gray text-gold">
-            
-            <h1 className="pt-5">Privacy Policy</h1>
-            <p>Last updated: December 9, 2025</p>
+        <main className="privacy-page bg-blackburn-gray text-gold">
+            <section className="container privacy-page-content">
+                <div className="privacy-hero">
+                    <p className="challenge-kicker">The Daily Nugget</p>
+                    <h1>Privacy Policy</h1>
+                    <p className="privacy-updated">Last updated: December 9, 2025</p>
 
-            <p>
-                Blackburn Works LLC (“we,” “us,” or “our”) operates The Daily Nugget mobile
-                application (“the App”). This Privacy Policy explains how we collect, use,
-                disclose, and protect your information when you use the App.
-            </p>
+                    <p>
+                        Blackburn Works LLC (“we,” “us,” or “our”) operates The Daily Nugget mobile
+                        application (“the App”). This Privacy Policy explains how we collect, use,
+                        disclose, and protect your information when you use the App.
+                    </p>
 
-            <p>
-                By using The Daily Nugget, you agree to the collection and use of information in
-                accordance with this Privacy Policy.
-            </p>
+                    <p>
+                        By using The Daily Nugget, you agree to the collection and use of information in
+                        accordance with this Privacy Policy.
+                    </p>
+                </div>
 
-            <ol className="policy-list">
+            <ol className="policy-list privacy-policy-card">
 
                 {/* 1. Information We Collect */}
                 <li>
@@ -190,6 +193,7 @@ export default function PrivacyPolicy() {
                 </li>
 
             </ol>
-        </div>
+            </section>
+        </main>
     );
 }

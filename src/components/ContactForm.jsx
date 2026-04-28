@@ -3,10 +3,10 @@ import { useForm, ValidationError } from '@formspree/react';
 export default function ContactForm() {
   const [state, handleSubmit] = useForm("movkejjn");
   if (state.succeeded) {
-      return <p className='text-success lead'>Your nugget just made it into the bucket! Thanks for sharing.</p>;
+      return <p className='contact-success lead'>Your nugget just made it into the bucket! Thanks for sharing.</p>;
   }
   return (
-    <form onSubmit={handleSubmit} className="">
+    <form onSubmit={handleSubmit} className="contact-form">
         <label htmlFor="name" className="form-label lead ">
             Name
         </label>
@@ -56,7 +56,7 @@ export default function ContactForm() {
         field="message"
         errors={state.errors}
       />
-      <button className="btn btn-primary" type="submit" disabled={state.submitting}>
+      <button className="btn btn-blackburn-gold" type="submit" disabled={state.submitting}>
         Submit
       </button>
     </form>

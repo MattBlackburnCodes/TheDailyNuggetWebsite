@@ -118,7 +118,7 @@ export default function Categories() {
                 <span className="fs-1 bg-blackburn-dark-yellow rounded-2">🎯</span>
                 <div>
                   <h4 className="mb-1">Games</h4>
-                  <p className="mb-2">Play the Daily Nugget Challenge.</p>
+                  <p className="mb-2">Daily, survival, and real-or-fake games.</p>
                 </div>
               </div>
 

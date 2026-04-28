@@ -268,6 +268,8 @@ const getResultMessage = (score) => {
   return 'Rough round, but every nugget counts.'
 }
 
+const getChallengeUrl = () => `${window.location.origin}/games/daily-challenge`
+
 const shuffleItems = (items) => {
   const shuffled = [...items]
 
@@ -301,6 +303,10 @@ export default function DailyNuggetChallenge() {
 
   const currentQuestion = roundQuestions[currentQuestionIndex]
   const isLastQuestion = currentQuestionIndex === roundQuestions.length - 1
+  const shareMessage = `I scored ${score}/5 on today's Daily Nugget Challenge.`
+  const shareUrl = getChallengeUrl()
+  const encodedShareText = encodeURIComponent(`${shareMessage} ${shareUrl}`)
+  const encodedShareUrl = encodeURIComponent(shareUrl)
 
   const completeChallenge = (finalScore) => {
     const today = todayKey()
@@ -358,15 +364,31 @@ export default function DailyNuggetChallenge() {
     setShareStatus('')
   }
 
-  const shareResult = async () => {
-    const message = `I scored ${score}/5 on today's Daily Nugget Challenge.`
-
+  const copyShareText = async (textToCopy = `${shareMessage} ${shareUrl}`) => {
     try {
-      await navigator.clipboard.writeText(message)
-      setShareStatus('Result copied.')
+      await navigator.clipboard.writeText(textToCopy)
+      setShareStatus('Copied.')
     } catch {
-      setShareStatus(message)
+      setShareStatus(textToCopy)
     }
+  }
+
+  const shareResult = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Daily Nugget Challenge',
+          text: shareMessage,
+          url: shareUrl,
+        })
+        setShareStatus('Share sheet opened.')
+        return
+      } catch (error) {
+        if (error.name === 'AbortError') return
+      }
+    }
+
+    copyShareText()
   }
 
   if (gameComplete) {
@@ -379,7 +401,7 @@ export default function DailyNuggetChallenge() {
           <p className="challenge-message">{getResultMessage(score)}</p>
           <p className="challenge-streak">Current streak: {streak} day{streak === 1 ? '' : 's'}</p>
 
-          <div className="challenge-ad-space">Ad Space</div>
+          <div className="challenge-ad-space challenge-results-ad">Ad Space</div>
 
           <div className="challenge-actions">
             <button className="btn btn-blackburn-gold" type="button" onClick={shareResult}>
@@ -387,6 +409,53 @@ export default function DailyNuggetChallenge() {
             </button>
             <button className="btn btn-outline-light" type="button" onClick={resetGame}>
               Play Another Round
+            </button>
+          </div>
+
+          <div className="challenge-share-panel" aria-label="Share options">
+            <a
+              className="challenge-share-link"
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodedShareUrl}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Facebook
+            </a>
+            <a
+              className="challenge-share-link"
+              href={`https://twitter.com/intent/tweet?text=${encodedShareText}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              X
+            </a>
+            <a
+              className="challenge-share-link"
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedShareUrl}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              className="challenge-share-link"
+              href={`https://api.whatsapp.com/send?text=${encodedShareText}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp
+            </a>
+            <a
+              className="challenge-share-link"
+              href={`mailto:?subject=Daily Nugget Challenge&body=${encodedShareText}`}
+            >
+              Email
+            </a>
+            <button className="challenge-share-link" type="button" onClick={() => copyShareText()}>
+              Copy Link
+            </button>
+            <button className="challenge-share-link" type="button" onClick={() => copyShareText()}>
+              Copy for Instagram
             </button>
           </div>
           {shareStatus && <p className="challenge-share-status">{shareStatus}</p>}
@@ -398,65 +467,75 @@ export default function DailyNuggetChallenge() {
   return (
     <main className="challenge-page">
       <section className="challenge-shell">
-        <div className="challenge-hero">
-          <div>
-            <p className="challenge-kicker">Daily Nugget Challenge</p>
-            <h1>Find the missing nugget.</h1>
-            <p>
-              Chick E. Nugget picked five quotes for today. Choose the word that completes each one.
-            </p>
-          </div>
-          <img className="challenge-mascot" src={mascot} alt="Chick E. Nugget" />
-        </div>
-
-        <div className="challenge-status-row">
-          <span>Question {currentQuestionIndex + 1} of {roundQuestions.length}</span>
-          <span>Score: {score}</span>
-          <span>Streak: {streak}</span>
-        </div>
-
-        <article className="challenge-card">
-          <blockquote>{currentQuestion.quote}</blockquote>
-          <p className="challenge-author">- {currentQuestion.author}</p>
-
-          <div className="challenge-options">
-            {currentQuestion.options.map((option) => {
-              const isSelected = selectedAnswer === option
-              const isCorrect = option === currentQuestion.answer
-              let buttonClass = 'challenge-option'
-
-              if (isAnswered && isSelected) {
-                buttonClass += isCorrect ? ' is-correct' : ' is-incorrect'
-              }
-
-              return (
-                <button
-                  className={buttonClass}
-                  type="button"
-                  key={option}
-                  onClick={() => handleAnswerClick(option)}
-                  disabled={isAnswered}
-                >
-                  {option}
-                </button>
-              )
-            })}
-          </div>
-
-          {isAnswered && (
-            <div className="challenge-feedback">
-              {selectedAnswer === currentQuestion.answer
-                ? 'Correct. That nugget fits.'
-                : `Incorrect. The missing word was "${currentQuestion.answer}".`}
+        <div className="challenge-layout">
+          <div className="challenge-main">
+            <div className="challenge-hero">
+              <div>
+                <p className="challenge-kicker">Daily Nugget Challenge</p>
+                <h1>Find the missing nugget.</h1>
+                <p>
+                  Chick E. Nugget picked five quotes for today. Choose the word that completes each one.
+                </p>
+              </div>
+              <img className="challenge-mascot" src={mascot} alt="Chick E. Nugget" />
             </div>
-          )}
 
-          {isAnswered && (
-            <button className="btn btn-blackburn-gold challenge-next" type="button" onClick={handleNextQuestion}>
-              {isLastQuestion ? 'See Results' : 'Next'}
-            </button>
-          )}
-        </article>
+            <div className="challenge-ad-space challenge-mid-ad">Ad Space</div>
+
+            <div className="challenge-status-row">
+              <span>Question {currentQuestionIndex + 1} of {roundQuestions.length}</span>
+              <span>Score: {score}</span>
+              <span>Streak: {streak}</span>
+            </div>
+
+            <article className="challenge-card">
+              <blockquote>{currentQuestion.quote}</blockquote>
+              <p className="challenge-author">- {currentQuestion.author}</p>
+
+              <div className="challenge-options">
+                {currentQuestion.options.map((option) => {
+                  const isSelected = selectedAnswer === option
+                  const isCorrect = option === currentQuestion.answer
+                  let buttonClass = 'challenge-option'
+
+                  if (isAnswered && isSelected) {
+                    buttonClass += isCorrect ? ' is-correct' : ' is-incorrect'
+                  }
+
+                  return (
+                    <button
+                      className={buttonClass}
+                      type="button"
+                      key={option}
+                      onClick={() => handleAnswerClick(option)}
+                      disabled={isAnswered}
+                    >
+                      {option}
+                    </button>
+                  )
+                })}
+              </div>
+
+              {isAnswered && (
+                <div className="challenge-feedback">
+                  {selectedAnswer === currentQuestion.answer
+                    ? 'Correct. That nugget fits.'
+                    : `Incorrect. The missing word was "${currentQuestion.answer}".`}
+                </div>
+              )}
+
+              {isAnswered && (
+                <button className="btn btn-blackburn-gold challenge-next" type="button" onClick={handleNextQuestion}>
+                  {isLastQuestion ? 'See Results' : 'Next'}
+                </button>
+              )}
+            </article>
+          </div>
+
+          <aside className="challenge-side-ad" aria-label="Sponsored content">
+            <div className="challenge-ad-space">Ad Space</div>
+          </aside>
+        </div>
       </section>
     </main>
   )
