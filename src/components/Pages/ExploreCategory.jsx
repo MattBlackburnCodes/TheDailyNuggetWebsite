@@ -13,7 +13,7 @@ const ENDPOINTS = {
     facts: "https://fun-facts-quote-api.vercel.app/api/funFacts", // returns [ ... ]
     affirmations: "https://affirmation-quote-api.vercel.app/api/affirmations",
     jokes: "https://jokes-api-steel.vercel.app/api/jokes",
-
+    calm: "https://api-motivation.vercel.app/api/mood",
 };
 
 /* 
@@ -42,6 +42,15 @@ function normalize(categoryKey, data) {
 
     case "motivation": {
         const list = data.motivate ?? [];
+        return list.map((x) => ({
+            id: x.id,
+            text: x.q,
+            author: null,
+      }));
+    }
+
+    case "calm": {
+        const list = data.calm ?? [];
         return list.map((x) => ({
             id: x.id,
             text: x.q,
