@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function MerchSection() {
     return (
         <div className="bg-blackburn-black py-4">
@@ -16,12 +18,12 @@ export default function MerchSection() {
                         <h6 className="">Nugget Merch is Cooking</h6>
                     </div>
                     <div>
-                        <p className="">Coming Soon - Stickers, Mugs, and more</p>
+                        <p className="">Shop the latest Daily Nugget gear from Printify.</p>
                     </div>
 
                     <div className="row justify-content-start">
                         <div className="col-6 col-md-4">
-                            <button className="btn btn-blackburn-gold w-10">View Merch</button>
+                            <Link className="btn btn-blackburn-gold w-10" to="/merch">View Merch</Link>
                         </div>
                     </div>
                 </div>
