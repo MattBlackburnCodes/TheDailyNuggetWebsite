@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import mascot from '../../assets/New_App_Image.png'
+import PageMeta from '../PageMeta.jsx'
 
 const challengeQuestions = [
   {
@@ -401,8 +402,6 @@ export default function DailyNuggetChallenge() {
           <p className="challenge-message">{getResultMessage(score)}</p>
           <p className="challenge-streak">Current streak: {streak} day{streak === 1 ? '' : 's'}</p>
 
-          <div className="challenge-ad-space challenge-results-ad">Ad Space</div>
-
           <div className="challenge-actions">
             <button className="btn btn-blackburn-gold" type="button" onClick={shareResult}>
               Share Result
@@ -466,6 +465,11 @@ export default function DailyNuggetChallenge() {
 
   return (
     <main className="challenge-page">
+      <PageMeta
+        title="Daily Nugget Challenge"
+        description="Play the Daily Nugget Challenge, a five-question missing-word quote game with scoring, streak tracking, and shareable results."
+        path="/games/daily-challenge"
+      />
       <section className="challenge-shell">
         <div className="challenge-layout">
           <div className="challenge-main">
@@ -479,8 +483,6 @@ export default function DailyNuggetChallenge() {
               </div>
               <img className="challenge-mascot" src={mascot} alt="Chick E. Nugget" />
             </div>
-
-            <div className="challenge-ad-space challenge-mid-ad">Ad Space</div>
 
             <div className="challenge-status-row">
               <span>Question {currentQuestionIndex + 1} of {roundQuestions.length}</span>
@@ -531,10 +533,6 @@ export default function DailyNuggetChallenge() {
               )}
             </article>
           </div>
-
-          <aside className="challenge-side-ad" aria-label="Sponsored content">
-            <div className="challenge-ad-space">Ad Space</div>
-          </aside>
         </div>
       </section>
     </main>

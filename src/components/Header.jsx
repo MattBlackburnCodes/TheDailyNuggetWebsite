@@ -1,9 +1,15 @@
 import nugget from '../assets/New_App_Image.png'
 import appLogo from '../assets/AppStoreImage.svg'
+import PageMeta from './PageMeta.jsx'
 
 export default function Header() {
     return (
         <div>
+            <PageMeta
+                title="The Daily Nugget"
+                description="The Daily Nugget delivers quick quotes, affirmations, jokes, fun facts, quote games, and Chick E. Nugget merch for a lighter daily habit."
+                path="/"
+            />
             <div className="bg-blackburn-black text-gold py-5" >
                 <div className="container px-4 ">
                     <div className="row align-items-center g-4">

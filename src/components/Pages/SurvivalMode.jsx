@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { createMissingWordRound } from './gameData.js'
 import SocialSharePanel from './SocialSharePanel.jsx'
+import PageMeta from '../PageMeta.jsx'
 
 const getBestScore = () => Number(localStorage.getItem('dailyNuggetSurvivalBest')) || 0
 const getShareUrl = () => `${window.location.origin}/games/survival`
@@ -98,7 +99,6 @@ export default function SurvivalMode() {
           <p className="challenge-kicker">Survival Mode</p>
           <h1>Final score: {survivalScore}</h1>
           <p className="challenge-message">Best survival score: {bestScore}</p>
-          <div className="challenge-ad-space">Ad Space</div>
           <div className="challenge-actions">
             <button className="btn btn-blackburn-gold" type="button" onClick={shareResult}>
               Share Result
@@ -121,6 +121,11 @@ export default function SurvivalMode() {
 
   return (
     <main className="challenge-page">
+      <PageMeta
+        title="Survival Mode"
+        description="Play Daily Nugget Survival Mode, an endless missing-word quote game where one wrong answer ends the run."
+        path="/games/survival"
+      />
       <section className="challenge-shell game-mode-shell">
         <div className="challenge-hero">
           <div>

@@ -1,4 +1,92 @@
 import { Link } from "react-router-dom";
+import chickENuggetIcon from "../../assets/ChickENuggetIcon.png";
+
+const categories = [
+  {
+    icon: "🎲",
+    title: "Random Quotes",
+    description: "A little bit of everything.",
+    route: "/explore/quotes",
+    buttonText: "Explore",
+  },
+  {
+    icon: "💪",
+    title: "Motivation",
+    description: "Get moving with a quick push.",
+    route: "/explore/motivation",
+    buttonText: "Explore",
+  },
+  {
+    icon: "🥰",
+    title: "Affirmations",
+    description: "Confidence and calm.",
+    route: "/explore/affirmations",
+    buttonText: "Explore",
+  },
+  {
+    icon: "😂",
+    title: "Jokes",
+    description: "Keep it light.",
+    route: "/explore/jokes",
+    buttonText: "Explore",
+  },
+  {
+    icon: "🤓",
+    title: "Fun Facts",
+    description: "Quick curiosity hits.",
+    route: "/explore/facts",
+    buttonText: "Explore",
+  },
+  {
+    icon: "🧘",
+    title: "Calm",
+    description: "Find your peace.",
+    route: "/explore/calm",
+    buttonText: "Explore",
+  },
+  {
+    icon: "🇺🇸",
+    title: "Presidents",
+    description: "Leadership quotes from the Oval Office and beyond.",
+    route: "/explore/presidents",
+    buttonText: "Explore",
+  },
+  {
+    icon: "❤️",
+    title: "Love",
+    description: "Warm reminders for connection and care.",
+    route: "/explore/love",
+    buttonText: "Explore",
+  },
+  {
+    iconImage: chickENuggetIcon,
+    title: "Chick E. Nugget Quotes",
+    description: "Fresh Chick E. Nugget lines made for the brand.",
+    route: "/explore/chick-e-nugget-quotes",
+    buttonText: "Explore",
+  },
+  {
+    icon: "🚀",
+    title: "Entrepreneurs",
+    description: "Builder energy for ideas, side hustles, and starts.",
+    route: "/explore/entrepreneurs",
+    buttonText: "Explore",
+  },
+  {
+    icon: "💡",
+    title: "Wisdom",
+    description: "Clear reminders for better choices and perspective.",
+    route: "/explore/wisdom",
+    buttonText: "Explore",
+  },
+  {
+    icon: "🎯",
+    title: "Games",
+    description: "Daily, survival, and real-or-fake games.",
+    route: "/games",
+    buttonText: "Play",
+  },
+];
 
 export default function Categories() {
   return (
@@ -16,117 +104,29 @@ export default function Categories() {
         </div>
 
         <div className="row gy-3">
-          <div className="col-12 col-md-4">
-            <div className="p-3 shadow-inset rounded-4">
-              <div className="d-flex align-items-center gap-3 mb-3">
-                <span className="fs-1 bg-blackburn-dark-yellow rounded-2">🎲</span>
-                <div>
-                  <h4 className="mb-1">Random Quotes</h4>
-                  <p className="mb-2">A little bit of everything.</p>
+          {categories.map((category) => (
+            <div className="col-12 col-md-6 col-xl-4" key={category.title}>
+              <div className="p-3 shadow-inset rounded-4 h-100 category-card">
+                <div className="d-flex align-items-center gap-3 mb-3">
+                  {category.iconImage ? (
+                    <span className="category-image-icon bg-blackburn-dark-yellow rounded-2">
+                      <img src={category.iconImage} alt={`${category.title} icon`} />
+                    </span>
+                  ) : (
+                    <span className="fs-1 bg-blackburn-dark-yellow rounded-2">{category.icon}</span>
+                  )}
+                  <div>
+                    <h4 className="mb-1">{category.title}</h4>
+                    <p className="mb-2">{category.description}</p>
+                  </div>
                 </div>
+
+                <Link to={category.route} className="btn btn-blackburn-gold">
+                  {category.buttonText}
+                </Link>
               </div>
-
-              <Link to="/explore/quotes" className="btn btn-blackburn-gold">
-                Explore
-              </Link>
             </div>
-          </div>
-
-          <div className="col-12 col-md-4">
-            <div className="p-3 shadow-inset rounded-4">
-              <div className="d-flex align-items-center gap-3 mb-3">
-                <span className="fs-1 bg-blackburn-dark-yellow rounded-2">🤣</span>
-                <div>
-                  <h4 className="mb-1">Jokes</h4>
-                  <p className="mb-2">Keep it light.</p>
-                </div>
-              </div>
-
-              <Link to="/explore/jokes" className="btn btn-blackburn-gold">
-                Explore
-              </Link>
-            </div>
-          </div>
-
-          <div className="col-12 col-md-4">
-            <div className="p-3 shadow-inset rounded-4">
-              <div className="d-flex align-items-center gap-3 mb-3">
-                <span className="fs-1 bg-blackburn-dark-yellow rounded-2">🥰</span>
-                <div>
-                  <h4 className="mb-1">Affirmation</h4>
-                  <p className="mb-2">Confidence and calm.</p>
-                </div>
-              </div>
-
-              <Link to="/explore/affirmations" className="btn btn-blackburn-gold">
-                Explore
-              </Link>
-            </div>
-          </div>
-
-          <div className="col-12 col-md-4">
-            <div className="p-3 shadow-inset rounded-4">
-              <div className="d-flex align-items-center gap-3 mb-3">
-                <span className="fs-1 bg-blackburn-dark-yellow rounded-2">🤓</span>
-                <div>
-                  <h4 className="mb-1">Fun Facts</h4>
-                  <p className="mb-2">Quick curiosity hits.</p>
-                </div>
-              </div>
-
-              <Link to="/explore/facts" className="btn btn-blackburn-gold">
-                Explore
-              </Link>
-            </div>
-          </div>
-
-          <div className="col-12 col-md-4">
-            <div className="p-3 shadow-inset rounded-4">
-              <div className="d-flex align-items-center gap-3 mb-3">
-                <span className="fs-1 bg-blackburn-dark-yellow rounded-2">💪</span>
-                <div>
-                  <h4 className="mb-1">Motivation</h4>
-                  <p className="mb-2">Get Moving.</p>
-                </div>
-              </div>
-
-              <Link to="/explore/motivation" className="btn btn-blackburn-gold">
-                Explore
-              </Link>
-            </div>
-          </div>
-
-          <div className="col-12 col-md-4">
-            <div className="p-3 shadow-inset rounded-4">
-              <div className="d-flex align-items-center gap-3 mb-3">
-                <span className="fs-1 bg-blackburn-dark-yellow rounded-2">🧘</span>
-                <div>
-                  <h4 className="mb-1">Calm</h4>
-                  <p className="mb-2">Find your peace.</p>
-                </div>
-              </div>
-
-              <Link to="/explore/calm" className="btn btn-blackburn-gold">
-                Explore
-              </Link>
-            </div>
-          </div>
-
-          <div className="col-12 col-md-4">
-            <div className="p-3 shadow-inset rounded-4">
-              <div className="d-flex align-items-center gap-3 mb-3">
-                <span className="fs-1 bg-blackburn-dark-yellow rounded-2">🎯</span>
-                <div>
-                  <h4 className="mb-1">Games</h4>
-                  <p className="mb-2">Daily, survival, and real-or-fake games.</p>
-                </div>
-              </div>
-
-              <Link to="/games" className="btn btn-blackburn-gold">
-                Play
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

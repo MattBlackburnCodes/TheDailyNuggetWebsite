@@ -1,6 +1,13 @@
+import PageMeta from './PageMeta.jsx'
+
 export default function PrivacyPolicy() {
     return (
         <main className="privacy-page bg-blackburn-gray text-gold">
+            <PageMeta
+                title="Privacy Policy"
+                description="Read The Daily Nugget privacy policy, including information about app usage, contact submissions, third-party services, notifications, and privacy rights."
+                path="/privacy-policy"
+            />
             <section className="container privacy-page-content">
                 <div className="privacy-hero">
                     <p className="challenge-kicker">The Daily Nugget</p>

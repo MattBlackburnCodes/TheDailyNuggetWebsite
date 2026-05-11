@@ -1,8 +1,14 @@
 import ContactForm from './ContactForm.jsx';
+import PageMeta from './PageMeta.jsx';
 
 export default function Contact() {
     return (
         <section id="contact" className="contact-page bg-blackburn-black">
+            <PageMeta
+                title="Contact"
+                description="Contact The Daily Nugget to share feedback, submit a quote, suggest a game idea, ask about merch, or connect with Blackburn Works LLC."
+                path="/contact"
+            />
             <div className="container contact-page-content">
                 <div className="row gx-5 gy-4 align-items-center">
                     <div className="col-12 col-lg-5 text-gold">

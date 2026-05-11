@@ -40,6 +40,99 @@
   color: #888;
 }
 
+.category-image-icon {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 3.75rem;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0.25rem;
+  width: 3.75rem;
+}
+
+.category-image-icon img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.category-page-content {
+  padding-bottom: 3rem;
+  padding-top: 5rem;
+}
+
+.category-page-header {
+  margin-bottom: 1rem;
+}
+
+.category-page-header h2 {
+  color: #f0b91f;
+  font-size: clamp(2.05rem, 4vw, 3.6rem);
+  font-weight: 900;
+  line-height: 0.95;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 3px 18px rgba(218, 165, 32, 0.28);
+  text-transform: capitalize;
+}
+
+.category-page-header p,
+.category-page-intro p {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.category-page-intro {
+  background:
+    linear-gradient(90deg, rgba(218, 165, 32, 0.16), rgba(218, 165, 32, 0.04)),
+    rgba(32, 34, 36, 0.28);
+  border: 1px solid rgba(218, 165, 32, 0.28);
+  border-left: 5px solid #daa520;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.15rem;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+  width: 100%;
+}
+
+.category-page-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.category-page-faq {
+  margin-top: 2rem;
+}
+
+.category-quote-card,
+.category-faq-card {
+  border: 1px solid rgba(218, 165, 32, 0.22);
+}
+
+.category-quote-text {
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.category-quote-author {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  margin-top: 0.2rem;
+}
+
+.category-faq-card h4 {
+  color: #f5d27a;
+  font-weight: 900;
+}
+
+.category-faq-card p {
+  line-height: 1.6;
+}
+
 .about-page {
   align-items: center;
   display: flex;
@@ -219,6 +312,24 @@
   padding: 1rem;
 }
 
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.footer-legal-links a {
+  color: #daa520;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-legal-links a:hover {
+  color: #fff;
+}
+
 .merch-page {
   min-height: 100vh;
   padding: 6rem 1rem 4rem;
@@ -257,7 +368,8 @@
 .merch-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 320px));
+  justify-content: center;
 }
 
 .merch-card {
@@ -267,7 +379,9 @@
   color: #f8f4e9;
   display: grid;
   grid-template-rows: auto 1fr;
+  max-width: 320px;
   overflow: hidden;
+  width: 100%;
 }
 
 .merch-image-wrap {
@@ -367,41 +481,6 @@
   display: flex;
   gap: 0.75rem;
   justify-content: space-between;
-}
-
-.google-ad-wrapper {
-  align-items: center;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(218, 165, 32, 0.35);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 120px;
-  overflow: hidden;
-  padding: 1rem;
-  text-align: center;
-  width: 100%;
-}
-
-.google-ad-label {
-  color: rgba(255, 255, 255, 0.72);
-  display: block;
-  font-size: 0.78rem;
-  letter-spacing: 0.04rem;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-}
-
-.google-ad-wrapper .adsbygoogle {
-  min-height: 90px;
-  width: 100%;
-}
-
-.google-ad-fallback {
-  color: rgba(218, 165, 32, 0.82);
-  font-size: 0.9rem;
-  font-weight: 700;
-  margin-top: 0.25rem;
 }
 
 .games-page {
@@ -585,31 +664,6 @@
   text-align: center;
 }
 
-.challenge-mid-ad {
-  display: none;
-  margin-bottom: 1rem;
-  min-height: 54px;
-  padding: 0.45rem 0.8rem;
-}
-
-.challenge-mid-ad .google-ad-label {
-  margin-bottom: 0.15rem;
-}
-
-.challenge-mid-ad .adsbygoogle {
-  min-height: 32px;
-}
-
-.challenge-side-ad {
-  position: sticky;
-  top: 5.5rem;
-}
-
-.challenge-side-ad .google-ad-wrapper {
-  min-height: 360px;
-  padding: 0.75rem;
-}
-
 .challenge-card {
   padding: 1.5rem;
 }
@@ -696,25 +750,6 @@
   margin: 1rem 0 0;
 }
 
-.challenge-ad-space {
-  align-items: center;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px dashed rgba(218, 165, 32, 0.55);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.76);
-  display: flex;
-  font-weight: 800;
-  justify-content: center;
-  margin: 1.5rem auto;
-  min-height: 110px;
-  max-width: 620px;
-}
-
-.challenge-results-ad {
-  margin: 1.5rem auto;
-  max-width: 720px;
-}
-
 .challenge-actions {
   display: flex;
   flex-wrap: wrap;
@@ -768,14 +803,6 @@ button.challenge-share-link {
 @media (max-width: 700px) {
   .challenge-layout {
     display: block;
-  }
-
-  .challenge-side-ad {
-    display: none;
-  }
-
-  .challenge-mid-ad {
-    display: flex;
   }
 
   .games-hero,

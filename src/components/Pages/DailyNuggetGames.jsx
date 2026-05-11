@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import mascot from '../../assets/New_App_Image.png'
+import PageMeta from '../PageMeta.jsx'
 
 const gameModes = [
   {
@@ -28,12 +29,18 @@ const gameModes = [
 export default function DailyNuggetGames() {
   return (
     <main className="games-page">
+      <PageMeta
+        title="Daily Nugget Games"
+        description="Play Daily Nugget quote games including Daily Nugget Challenge, Survival Mode, and Real or Fake: AI vs Human."
+        path="/games"
+      />
       <section className="games-shell">
         <div className="games-hero">
           <div>
             <p className="challenge-kicker">Games</p>
             <h1>Daily Nugget Games</h1>
             <p>Pick a quote game with Chick E. Nugget and build a habit, chase a score, or test your eye.</p>
+            <p>Each mode is built around bite-sized quote play: complete the daily habit challenge, see how long you can survive, or test whether a line came from a real human or AI.</p>
           </div>
           <img className="games-mascot" src={mascot} alt="Chick E. Nugget" />
         </div>

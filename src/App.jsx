@@ -5,9 +5,10 @@ import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import TodaysNuggetRow  from './components/HomePage/TodaysNuggetRow.jsx'
-import Ad from './components/HomePage/Ad.jsx'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import PrivacyPolicy from './components/PrivacyPolicy.jsx'
+import TermsOfService from './components/TermsOfService.jsx'
+import Disclaimer from './components/Disclaimer.jsx'
 import Merch from './components/Merch.jsx'
 import { useEffect } from 'react'
 import Categories from './components/HomePage/Categories.jsx'
@@ -49,7 +50,6 @@ export default function App() {
           <>
             <Header />
             <TodaysNuggetRow />
-            <Ad />
             <Categories />
             <MerchSection />
           </>
@@ -57,6 +57,8 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/merch" element={<Merch />} />
         <Route path="/games" element={<DailyNuggetGames />} />
         <Route path="/games/daily-challenge" element={<DailyNuggetChallenge />} />

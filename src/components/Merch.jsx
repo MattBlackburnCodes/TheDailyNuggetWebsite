@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import PageMeta from './PageMeta.jsx'
 
 const formatPrice = (priceInCents) => {
     if (priceInCents === null || priceInCents === undefined) return 'Price coming soon'
@@ -114,6 +115,11 @@ export default function Merch() {
 
     return (
         <main className="merch-page bg-blackburn-gray text-gold">
+            <PageMeta
+                title="Merch"
+                description="Shop Daily Nugget merch inspired by Chick E. Nugget, motivational quotes, fun facts, jokes, affirmations, and the crispy crew."
+                path="/merch"
+            />
             <section className="container merch-page-content">
                 <div className="merch-hero">
                     <p className="challenge-kicker">Shop</p>
