@@ -1,10 +1,12 @@
 // AppNavbar.jsx
 import { useCallback, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../context/useAuth.js'
 
 export default function AppNavbar() {
   const navRef = useRef(null)
   const collapseRef = useRef(null)
+  const { currentUser } = useAuth()
 
   // Initialize a Collapse instance once
   useEffect(() => {
@@ -69,6 +71,7 @@ export default function AppNavbar() {
             <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/privacy-policy" onClick={closeMenu}>Privacy Policy</Link></li>
             <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/merch" onClick={closeMenu}>Merch</Link></li>
             <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/games" onClick={closeMenu}>Games</Link></li>
+            <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/account" onClick={closeMenu}>{currentUser ? 'Account' : 'Sign Up'}</Link></li>
           </ul>
         </div>
       </div>

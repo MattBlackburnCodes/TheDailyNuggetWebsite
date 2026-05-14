@@ -10,6 +10,7 @@ import PrivacyPolicy from './components/PrivacyPolicy.jsx'
 import TermsOfService from './components/TermsOfService.jsx'
 import Disclaimer from './components/Disclaimer.jsx'
 import Merch from './components/Merch.jsx'
+import Account from './components/Account.jsx'
 import { useEffect } from 'react'
 import Categories from './components/HomePage/Categories.jsx'
 import MerchSection from './components/HomePage/MerchSection.jsx'
@@ -60,6 +61,7 @@ export default function App() {
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/merch" element={<Merch />} />
+        <Route path="/account" element={<Account />} />
         <Route path="/games" element={<DailyNuggetGames />} />
         <Route path="/games/daily-challenge" element={<DailyNuggetChallenge />} />
         <Route path="/games/survival" element={<SurvivalMode />} />

@@ -241,6 +241,157 @@
   margin: 0;
 }
 
+.account-page {
+  min-height: 100vh;
+  padding: 6rem 1rem 4rem;
+}
+
+.account-page-content {
+  max-width: 1080px;
+}
+
+.account-layout {
+  align-items: stretch;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+}
+
+.account-panel,
+.account-benefits {
+  background: rgba(32, 34, 36, 0.78);
+  border: 1px solid rgba(218, 165, 32, 0.28);
+  border-radius: 8px;
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.18);
+  color: #f8f4e9;
+  padding: 1.5rem;
+}
+
+.account-panel h1,
+.account-benefits h2 {
+  color: #daa520;
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+}
+
+.account-muted {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.65;
+}
+
+.account-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.account-form label {
+  color: #f5d27a;
+  font-weight: 800;
+}
+
+.account-form input {
+  background: #f8f4e9;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  color: #202224;
+  display: block;
+  font-weight: 700;
+  margin-top: 0.4rem;
+  min-height: 46px;
+  padding: 0.55rem 0.75rem;
+  width: 100%;
+}
+
+.account-form input:focus {
+  border-color: #daa520;
+  outline: none;
+}
+
+.account-mode-toggle {
+  background: transparent;
+  border: 0;
+  color: #f5d27a;
+  font-weight: 800;
+  margin-top: 1rem;
+  padding: 0;
+  text-align: left;
+}
+
+.account-success,
+.account-error {
+  border-radius: 8px;
+  font-weight: 800;
+  margin: 1rem 0;
+  padding: 0.75rem 0.9rem;
+}
+
+.account-success {
+  background: rgba(56, 161, 105, 0.16);
+  color: #d8f5dc;
+}
+
+.account-error {
+  background: rgba(229, 62, 62, 0.16);
+  color: #ffd7d7;
+}
+
+.account-benefits ul {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.account-benefits li {
+  background: rgba(218, 165, 32, 0.12);
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.8rem 0.9rem;
+}
+
+.account-stats-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 1.25rem 0;
+}
+
+.account-stats-grid div,
+.account-profile-card {
+  background: rgba(218, 165, 32, 0.12);
+  border: 1px solid rgba(218, 165, 32, 0.22);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.account-stats-grid span {
+  color: rgba(255, 255, 255, 0.72);
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.account-stats-grid strong {
+  color: #f5d27a;
+  display: block;
+  font-size: 1.35rem;
+  margin-top: 0.25rem;
+}
+
+.account-profile-card {
+  color: #fff;
+  margin-bottom: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.account-profile-card p {
+  margin-bottom: 0.5rem;
+}
+
 .privacy-page {
   min-height: 100vh;
   padding: 6rem 1rem 4rem;
@@ -801,6 +952,11 @@ button.challenge-share-link {
 }
 
 @media (max-width: 700px) {
+  .account-layout,
+  .account-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
   .challenge-layout {
     display: block;
   }
