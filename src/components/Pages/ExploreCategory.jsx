@@ -1,6 +1,8 @@
-import { useParams } from "react-router-dom";
+/* eslint-disable react-refresh/only-export-components */
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PageMeta from "../PageMeta.jsx";
+import QuoteActions from "./QuoteActions.jsx";
 
 /*
 Make sure these keys EXACTLY match your route links:
@@ -8,12 +10,14 @@ Make sure these keys EXACTLY match your route links:
 <Link to="/explore/facts" />
 */
 
-const ENDPOINTS = {
+export const ENDPOINTS = {
     motivation: "https://api-motivation.vercel.app/api/mood/",
     jokes: "https://jokes-api-steel.vercel.app/api/jokes",
     calm: "https://api-motivation.vercel.app/api/mood",
     facts: "https://fun-facts-quote-api.vercel.app/api/funFacts"
 };
+
+const FAVORITES_STORAGE_KEY = "dailyNuggetFavorites";
 
 const randomQuotes = [
   { text: "A steady day can still become a turning point.", author: "The Daily Nugget" },
@@ -335,7 +339,7 @@ const wisdomQuotes = [
   { text: "A wise reset is still progress.", author: "The Daily Nugget" },
 ];
 
-const LOCAL_CATEGORIES = {
+export const LOCAL_CATEGORIES = {
   quotes: {
     title: "Random Quotes",
     description: "Explore random quotes from The Daily Nugget.",
@@ -376,9 +380,14 @@ const LOCAL_CATEGORIES = {
     description: "Clear reminders for better choices, calm perspective, and everyday judgment.",
     items: wisdomQuotes,
   },
+  favorites: {
+    title: "Favorite Quotes",
+    description: "Revisit the nuggets you saved from around the site.",
+    items: [],
+  },
 };
 
-const CATEGORY_CONTENT = {
+export const CATEGORY_CONTENT = {
   quotes: {
     intro: [
       "Random quotes are useful when you want a quick reset without choosing a specific mood first. This page brings together short thoughts that can work as journal starters, conversation prompts, morning reminders, or a quick pause during a busy day.",
@@ -555,14 +564,48 @@ const CATEGORY_CONTENT = {
       },
     ],
   },
+  favorites: {
+    intro: [
+      "Favorite quotes are the nuggets you wanted to keep close. This page gathers your saved lines in one place so you can return to them without hunting through every category again.",
+      "For now, favorites are stored on this browser. Once favorites move into Firestore, this category can follow your account across devices.",
+    ],
+    faq: [
+      {
+        question: "How do I add a favorite quote?",
+        answer: "Open any quote category, choose a quote you want to keep, and press Favorite on the quote card or quote page.",
+      },
+      {
+        question: "Why did my favorites disappear on another device?",
+        answer: "Favorites currently use local browser storage. Account-synced favorites can be added later with Firestore.",
+      },
+    ],
+  },
 };
+
+function getFavoriteQuotes() {
+  try {
+    const savedFavorites = JSON.parse(localStorage.getItem(FAVORITES_STORAGE_KEY)) || {};
+
+    return Object.entries(savedFavorites)
+      .map(([favoriteKey, favorite]) => ({
+        id: favoriteKey,
+        text: favorite.text,
+        author: favorite.author,
+        sourceCategoryKey: favorite.categoryKey,
+        sourceQuoteId: favorite.quoteId,
+      }))
+      .sort((a, b) => a.id.localeCompare(b.id));
+  } catch {
+    return [];
+  }
+}
 
 /* 
 Normalize everything into:
 { id, text, author }
 So the UI never has to care about API differences
 */
-function normalize(categoryKey, data) {
+export function normalize(categoryKey, data) {
   switch (categoryKey) {
     case "quotes": {
       const list = data.randomQuotes ?? [];
@@ -629,6 +672,13 @@ export default function ExploreCategory() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    if (categoryKey === "favorites") {
+      setItems(getFavoriteQuotes());
+      setError("");
+      setLoading(false);
+      return;
+    }
+
     const local = LOCAL_CATEGORIES[categoryKey];
 
     if (local) {
@@ -714,19 +764,42 @@ export default function ExploreCategory() {
         {/* Grid */}
         {!loading && !error && (
           <div className="row gy-3">
-            {items.map((item, index) => (
-              <div
-                key={item.id ?? `${categoryKey}-${index}`}
-                className="col-12 col-md-6 col-xl-4"
-              >
-                <div className="category-quote-card p-3 shadow-inset bg-blackburn-dark-yellow rounded-4">
-                  <p className="category-quote-text text-white mb-2">{item.text}</p>
-                  {item.author && (
-                    <small className="category-quote-author text-gold">— {item.author}</small>
-                  )}
+            {items.map((item, index) => {
+              const quoteCategoryKey = item.sourceCategoryKey || categoryKey;
+              const quoteId = item.sourceQuoteId ?? item.id ?? index;
+
+              return (
+                <div
+                  key={item.id ?? `${categoryKey}-${index}`}
+                  className="col-12 col-md-6 col-xl-4"
+                >
+                  <div className="category-quote-card p-3 shadow-inset bg-blackburn-dark-yellow rounded-4">
+                    <Link
+                      className="category-quote-link"
+                      to={`/explore/${quoteCategoryKey}/${quoteId}`}
+                      aria-label={`Open quote page for ${item.text}`}
+                    >
+                      <p className="category-quote-text text-white mb-2">{item.text}</p>
+                      {item.author && (
+                        <small className="category-quote-author text-gold">— {item.author}</small>
+                      )}
+                    </Link>
+                    <QuoteActions
+                      categoryKey={quoteCategoryKey}
+                      quote={item}
+                      quoteId={quoteId}
+                      compact
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+        )}
+
+        {!loading && !error && items.length === 0 && (
+          <div className="category-empty-state">
+            <p className="text-white mb-0">No favorite quotes yet. Tap Favorite on any quote to build this category.</p>
           </div>
         )}
 

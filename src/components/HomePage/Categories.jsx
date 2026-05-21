@@ -80,6 +80,13 @@ const categories = [
     buttonText: "Explore",
   },
   {
+    icon: "⭐",
+    title: "Favorites",
+    description: "Revisit the nuggets you saved.",
+    route: "/explore/favorites",
+    buttonText: "View",
+  },
+  {
     icon: "🎯",
     title: "Games",
     description: "Daily, survival, and real-or-fake games.",

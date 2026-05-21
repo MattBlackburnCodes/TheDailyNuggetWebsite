@@ -1,5 +1,7 @@
 import { useState } from "react";
 import PageMeta from "./PageMeta.jsx";
+import AdminSubmissions from "./AdminSubmissions.jsx";
+import AppearanceSettings from "./AppearanceSettings.jsx";
 import { useAuth } from "../context/useAuth.js";
 
 function getFriendlyAuthError(error) {
@@ -162,6 +164,9 @@ export default function Account() {
               {/* <p><strong>User ID:</strong> {currentUser.uid}</p> */}
               <p className="mb-0"><strong>Saved nuggets:</strong> {userProfile?.savedNuggetsCount ?? 0}</p>
             </div>
+
+            <AppearanceSettings />
+            <AdminSubmissions />
 
             {status && <p className="account-success">{status}</p>}
             {error && <p className="account-error">{error}</p>}
