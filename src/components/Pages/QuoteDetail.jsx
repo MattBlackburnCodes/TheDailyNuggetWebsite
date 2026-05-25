@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PageMeta from "../PageMeta.jsx";
 import QuoteActions from "./QuoteActions.jsx";
+import { loadApprovedSubmissions } from "./approvedSubmissions.js";
 import { CATEGORY_CONTENT, ENDPOINTS, LOCAL_CATEGORIES, normalize } from "./ExploreCategory.jsx";
 
 function findQuote(items, quoteId) {
@@ -20,10 +21,28 @@ export default function QuoteDetail() {
     const local = LOCAL_CATEGORIES[categoryKey];
 
     if (local) {
-      setQuote(findQuote(local.items, quoteId));
-      setLoading(false);
-      setError("");
-      return;
+      let cancelled = false;
+
+      async function loadLocalQuote() {
+        setLoading(true);
+        setError("");
+
+        try {
+          const approvedSubmissions = await loadApprovedSubmissions(categoryKey);
+          const allItems = [...local.items, ...approvedSubmissions];
+          if (!cancelled) setQuote(findQuote(allItems, quoteId));
+        } catch {
+          if (!cancelled) setQuote(findQuote(local.items, quoteId));
+        } finally {
+          if (!cancelled) setLoading(false);
+        }
+      }
+
+      loadLocalQuote();
+
+      return () => {
+        cancelled = true;
+      };
     }
 
     const url = ENDPOINTS[categoryKey];
@@ -46,7 +65,8 @@ export default function QuoteDetail() {
 
         const data = await response.json();
         const items = normalize(categoryKey, data);
-        const selectedQuote = findQuote(items, quoteId);
+        const approvedSubmissions = await loadApprovedSubmissions(categoryKey);
+        const selectedQuote = findQuote([...items, ...approvedSubmissions], quoteId);
 
         if (!cancelled) setQuote(selectedQuote);
       } catch {
@@ -93,6 +113,11 @@ export default function QuoteDetail() {
           <>
             <div className="quote-detail-card">
               <p className="quote-detail-label">{pageTitle}</p>
+              {quote.isCommunitySubmission && (
+                <p className="community-nugget-badge community-nugget-badge-detail">
+                  Community Nugget{quote.submitterName ? ` by ${quote.submitterName}` : ""}
+                </p>
+              )}
               <blockquote>{quote.text}</blockquote>
               {quote.author && <p className="quote-detail-author">- {quote.author}</p>}
               <QuoteActions categoryKey={categoryKey} quote={quote} quoteId={quoteId} />

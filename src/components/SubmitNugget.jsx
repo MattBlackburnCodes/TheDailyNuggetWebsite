@@ -1,9 +1,10 @@
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, increment, serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../firebase/firebase.js";
 import { useAuth } from "../context/useAuth.js";
 import PageMeta from "./PageMeta.jsx";
+import { XP_REWARDS } from "../utils/xp.js";
 
 const submissionCategories = [
   { key: "quotes", label: "Random Quotes", helper: "Share a general quote or original nugget.", secondaryLabel: "Author", secondaryPlaceholder: "Author name or The Daily Nugget" },
@@ -20,17 +21,17 @@ const submissionCategories = [
 ];
 
 export default function SubmitNugget() {
-  const { currentUser, isFirebaseConfigured } = useAuth();
+  const { currentUser, userProfile, isFirebaseConfigured, awardXp } = useAuth();
   const [categoryKey, setCategoryKey] = useState(submissionCategories[0].key);
   const [text, setText] = useState("");
   const [secondaryText, setSecondaryText] = useState("");
-  const [submitterName, setSubmitterName] = useState("");
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
   const selectedCategory = submissionCategories.find((category) => category.key === categoryKey);
   const mainLabel = categoryKey === "jokes" ? "Joke setup" : categoryKey === "facts" ? "Fun fact" : "Quote or nugget";
+  const submitterName = userProfile?.displayName || currentUser?.displayName || currentUser?.email || "";
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -60,18 +61,24 @@ export default function SubmitNugget() {
         categoryTitle: selectedCategory.label,
         text: text.trim(),
         secondaryText: secondaryText.trim(),
-        submitterName: submitterName.trim(),
+        submitterName,
         submittedByUid: currentUser.uid,
         submittedByEmail: currentUser.email,
         status: "pending",
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
       });
+      try {
+        await awardXp(XP_REWARDS.submitNugget, {
+          submittedNuggetsCount: increment(1),
+        });
+        setStatus("Submitted for review. +10 XP");
+      } catch {
+        setStatus("Submitted for review. Thanks for adding a nugget to the tray.");
+      }
 
       setText("");
       setSecondaryText("");
-      setSubmitterName("");
-      setStatus("Submitted for review. Thanks for adding a nugget to the tray.");
     } catch {
       setError("Something went wrong while submitting. Please try again.");
     } finally {
@@ -141,15 +148,11 @@ export default function SubmitNugget() {
               />
             </label>
 
-            <label>
-              Your display name
-              <input
-                type="text"
-                value={submitterName}
-                onChange={(event) => setSubmitterName(event.target.value)}
-                placeholder="Optional"
-              />
-            </label>
+            {currentUser && (
+              <div className="submission-helper">
+                Submitting as {submitterName}
+              </div>
+            )}
 
             {status && <p className="account-success">{status}</p>}
             {error && <p className="account-error">{error}</p>}

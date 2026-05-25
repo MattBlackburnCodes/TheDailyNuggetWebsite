@@ -87,6 +87,13 @@ const categories = [
     buttonText: "View",
   },
   {
+    icon: "🤝",
+    title: "Community Nuggets",
+    description: "Approved nuggets from the Crispy Crew.",
+    route: "/explore/community-nuggets",
+    buttonText: "Explore",
+  },
+  {
     icon: "🎯",
     title: "Games",
     description: "Daily, survival, and real-or-fake games.",

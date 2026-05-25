@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
+import { increment } from "firebase/firestore";
+import { useAuth } from "../../context/useAuth.js";
+import { XP_REWARDS } from "../../utils/xp.js";
 
 const FAVORITES_STORAGE_KEY = "dailyNuggetFavorites";
+const FAVORITE_XP_STORAGE_KEY = "dailyNuggetFavoriteXpAwards";
 
 function getFavoriteKey(categoryKey, quoteId) {
   return `${categoryKey}:${quoteId}`;
@@ -22,7 +26,16 @@ function writeFavorites(favorites) {
   localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
 }
 
+function readFavoriteXpAwards() {
+  try {
+    return JSON.parse(localStorage.getItem(FAVORITE_XP_STORAGE_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
 export default function QuoteActions({ categoryKey, quote, quoteId, compact = false }) {
+  const { currentUser, awardXp } = useAuth();
   const [isFavorite, setIsFavorite] = useState(false);
   const [status, setStatus] = useState("");
   const favoriteKey = useMemo(() => getFavoriteKey(categoryKey, quoteId), [categoryKey, quoteId]);
@@ -42,7 +55,7 @@ export default function QuoteActions({ categoryKey, quote, quoteId, compact = fa
     }
   }
 
-  function toggleFavorite() {
+  async function toggleFavorite() {
     const favorites = readFavorites();
 
     if (favorites[favoriteKey]) {
@@ -59,6 +72,24 @@ export default function QuoteActions({ categoryKey, quote, quoteId, compact = fa
       };
       setIsFavorite(true);
       setStatus("Saved to favorites");
+
+      if (currentUser) {
+        const awards = readFavoriteXpAwards();
+        const awardKey = `${currentUser.uid}:${favoriteKey}`;
+
+        if (!awards[awardKey]) {
+          awards[awardKey] = new Date().toISOString();
+          localStorage.setItem(FAVORITE_XP_STORAGE_KEY, JSON.stringify(awards));
+          try {
+            await awardXp(XP_REWARDS.favoriteNugget, {
+              savedNuggetsCount: increment(1),
+            });
+            setStatus("Saved to favorites. +5 XP");
+          } catch {
+            setStatus("Saved to favorites");
+          }
+        }
+      }
     }
 
     writeFavorites(favorites);

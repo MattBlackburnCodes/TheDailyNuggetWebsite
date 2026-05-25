@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PageMeta from "../PageMeta.jsx";
 import QuoteActions from "./QuoteActions.jsx";
+import { loadApprovedSubmissions } from "./approvedSubmissions.js";
 
 /*
 Make sure these keys EXACTLY match your route links:
@@ -682,10 +683,27 @@ export default function ExploreCategory() {
     const local = LOCAL_CATEGORIES[categoryKey];
 
     if (local) {
-      setItems(local.items);
-      setError("");
-      setLoading(false);
-      return;
+      let cancelled = false;
+
+      async function loadLocalCategory() {
+        setLoading(true);
+        setError("");
+
+        try {
+          const approvedSubmissions = await loadApprovedSubmissions(categoryKey);
+          if (!cancelled) setItems([...local.items, ...approvedSubmissions]);
+        } catch {
+          if (!cancelled) setItems(local.items);
+        } finally {
+          if (!cancelled) setLoading(false);
+        }
+      }
+
+      loadLocalCategory();
+
+      return () => {
+        cancelled = true;
+      };
     }
 
     console.log("categoryKey:", categoryKey);
@@ -712,8 +730,9 @@ export default function ExploreCategory() {
 
         const data = await response.json();
         const normalized = normalize(categoryKey, data);
+        const approvedSubmissions = await loadApprovedSubmissions(categoryKey);
 
-        if (!cancelled) setItems(normalized);
+        if (!cancelled) setItems([...normalized, ...approvedSubmissions]);
       } catch {
         if (!cancelled) setError("Failed to load category.");
       } finally {
@@ -775,15 +794,21 @@ export default function ExploreCategory() {
                 >
                   <div className="category-quote-card p-3 shadow-inset bg-blackburn-dark-yellow rounded-4">
                     <Link
-                      className="category-quote-link"
-                      to={`/explore/${quoteCategoryKey}/${quoteId}`}
-                      aria-label={`Open quote page for ${item.text}`}
-                    >
-                      <p className="category-quote-text text-white mb-2">{item.text}</p>
-                      {item.author && (
-                        <small className="category-quote-author text-gold">— {item.author}</small>
-                      )}
-                    </Link>
+                    className="category-quote-link"
+                    to={`/explore/${quoteCategoryKey}/${quoteId}`}
+                    aria-label={`Open quote page for ${item.text}`}
+                  >
+                    {item.isCommunitySubmission && (
+                      <span className="community-nugget-badge">
+                        Community Nugget
+                        {item.submitterName ? ` by ${item.submitterName}` : ""}
+                      </span>
+                    )}
+                    <p className="category-quote-text text-white mb-2">{item.text}</p>
+                    {item.author && (
+                      <small className="category-quote-author text-gold">— {item.author}</small>
+                    )}
+                  </Link>
                     <QuoteActions
                       categoryKey={quoteCategoryKey}
                       quote={item}

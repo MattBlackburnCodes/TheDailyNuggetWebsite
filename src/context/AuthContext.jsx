@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -7,9 +7,10 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
+import { doc, getDoc, increment, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db, isFirebaseConfigured } from "../firebase/firebase.js";
 import { AuthContext } from "./authContext.js";
+import { awardUserXp, XP_REWARDS } from "../utils/xp.js";
 
 function buildUserProfile(user, displayName = "") {
   return {
@@ -18,10 +19,11 @@ function buildUserProfile(user, displayName = "") {
     displayName: displayName || user.displayName || "",
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
-    xp: 0,
+    xp: XP_REWARDS.createAccount,
     streakCount: 0,
     longestStreak: 0,
     lastActiveDate: null,
+    lastLoginXpDate: null,
     badges: [],
     rank: "Fresh Nugget",
     unlocks: [],
@@ -29,6 +31,32 @@ function buildUserProfile(user, displayName = "") {
     savedNuggetsCount: 0,
     savedJokesCount: 0,
     submittedNuggetsCount: 0,
+  };
+}
+
+function todayKey() {
+  return new Date().toLocaleDateString("en-CA");
+}
+
+async function awardDailyLoginXp(userId, profile) {
+  const today = todayKey();
+
+  if (profile?.lastLoginXpDate === today) {
+    return profile;
+  }
+
+  await updateDoc(doc(db, "users", userId), {
+    xp: increment(XP_REWARDS.dailyLogin),
+    lastLoginXpDate: today,
+    lastActiveDate: today,
+    updatedAt: serverTimestamp(),
+  });
+
+  return {
+    ...profile,
+    xp: (Number(profile?.xp) || 0) + XP_REWARDS.dailyLogin,
+    lastLoginXpDate: today,
+    lastActiveDate: today,
   };
 }
 
@@ -56,7 +84,9 @@ export function AuthProvider({ children }) {
       const profileSnapshot = await getDoc(profileRef);
 
       if (profileSnapshot.exists()) {
-        setUserProfile({ id: profileSnapshot.id, ...profileSnapshot.data() });
+        const profile = { id: profileSnapshot.id, ...profileSnapshot.data() };
+        const profileWithDailyXp = await awardDailyLoginXp(user.uid, profile);
+        setUserProfile(profileWithDailyXp);
       } else {
         const profile = buildUserProfile(user);
         await setDoc(profileRef, profile);
@@ -100,6 +130,16 @@ export function AuthProvider({ children }) {
     await sendPasswordResetEmail(auth, email);
   }
 
+  const awardXp = useCallback(async (amount, extraUpdates = {}) => {
+    if (!currentUser) return;
+
+    await awardUserXp(currentUser.uid, amount, extraUpdates);
+    setUserProfile((currentProfile) => currentProfile ? ({
+      ...currentProfile,
+      xp: (Number(currentProfile.xp) || 0) + amount,
+    }) : currentProfile);
+  }, [currentUser]);
+
   const value = useMemo(
     () => ({
       currentUser,
@@ -110,8 +150,9 @@ export function AuthProvider({ children }) {
       logIn,
       logOut,
       resetPassword,
+      awardXp,
     }),
-    [currentUser, userProfile, loading],
+    [currentUser, userProfile, loading, awardXp],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

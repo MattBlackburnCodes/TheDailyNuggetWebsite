@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import mascot from '../../assets/New_App_Image.png'
 import PageMeta from '../PageMeta.jsx'
+import { useAuth } from '../../context/useAuth.js'
+import { XP_REWARDS } from '../../utils/xp.js'
 
 const challengeQuestions = [
   {
@@ -293,6 +295,7 @@ const createRoundQuestions = () =>
     }))
 
 export default function DailyNuggetChallenge() {
+  const { currentUser, awardXp } = useAuth()
   const [roundQuestions, setRoundQuestions] = useState(createRoundQuestions)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [score, setScore] = useState(0)
@@ -301,6 +304,7 @@ export default function DailyNuggetChallenge() {
   const [gameComplete, setGameComplete] = useState(false)
   const [streak, setStreak] = useState(getStoredStreak)
   const [shareStatus, setShareStatus] = useState('')
+  const [xpStatus, setXpStatus] = useState('')
 
   const currentQuestion = roundQuestions[currentQuestionIndex]
   const isLastQuestion = currentQuestionIndex === roundQuestions.length - 1
@@ -309,7 +313,7 @@ export default function DailyNuggetChallenge() {
   const encodedShareText = encodeURIComponent(`${shareMessage} ${shareUrl}`)
   const encodedShareUrl = encodeURIComponent(shareUrl)
 
-  const completeChallenge = (finalScore) => {
+  const completeChallenge = async (finalScore) => {
     const today = todayKey()
     const yesterday = getYesterdayKey()
     const lastCompletedDate = localStorage.getItem('dailyNuggetChallengeLastCompleted')
@@ -327,6 +331,26 @@ export default function DailyNuggetChallenge() {
 
     localStorage.setItem('dailyNuggetChallengeLastCompleted', today)
     localStorage.setItem('dailyNuggetChallengeStreak', String(nextStreak))
+
+    if (currentUser) {
+      const xpAwardKey = `dailyNuggetChallengeXp:${currentUser.uid}:${today}`
+
+      if (!localStorage.getItem(xpAwardKey)) {
+        const xpAward = XP_REWARDS.completeDailyChallenge
+          + (finalScore === QUESTIONS_PER_ROUND ? XP_REWARDS.perfectDailyChallenge : 0)
+
+        try {
+          await awardXp(xpAward)
+          localStorage.setItem(xpAwardKey, String(xpAward))
+          setXpStatus(`+${xpAward} XP`)
+        } catch {
+          setXpStatus('')
+        }
+      } else {
+        setXpStatus('XP already claimed today.')
+      }
+    }
+
     setScore(finalScore)
     setStreak(nextStreak)
     setGameComplete(true)
@@ -343,9 +367,9 @@ export default function DailyNuggetChallenge() {
     }
   }
 
-  const handleNextQuestion = () => {
+  const handleNextQuestion = async () => {
     if (isLastQuestion) {
-      completeChallenge(score)
+      await completeChallenge(score)
       return
     }
 
@@ -363,6 +387,7 @@ export default function DailyNuggetChallenge() {
     setIsAnswered(false)
     setGameComplete(false)
     setShareStatus('')
+    setXpStatus('')
   }
 
   const copyShareText = async (textToCopy = `${shareMessage} ${shareUrl}`) => {
@@ -401,6 +426,7 @@ export default function DailyNuggetChallenge() {
           <h1>You scored {score}/5</h1>
           <p className="challenge-message">{getResultMessage(score)}</p>
           <p className="challenge-streak">Current streak: {streak} day{streak === 1 ? '' : 's'}</p>
+          {xpStatus && <p className="challenge-streak">{xpStatus}</p>}
 
           <div className="challenge-actions">
             <button className="btn btn-blackburn-gold" type="button" onClick={shareResult}>

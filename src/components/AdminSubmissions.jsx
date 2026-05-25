@@ -2,6 +2,7 @@ import { collection, doc, getDocs, limit, orderBy, query, serverTimestamp, updat
 import { useCallback, useEffect, useState } from "react";
 import { db } from "../firebase/firebase.js";
 import { useAuth } from "../context/useAuth.js";
+import { awardUserXp, XP_REWARDS } from "../utils/xp.js";
 
 const ADMIN_EMAIL = "jointhecrispycrew@gmail.com";
 
@@ -38,16 +39,27 @@ export default function AdminSubmissions() {
 
   async function reviewSubmission(submissionId, reviewStatus) {
     if (!isAdmin) return;
+    const submission = submissions.find((item) => item.id === submissionId);
+    const shouldAwardApprovalXp = reviewStatus === "approved"
+      && submission?.submittedByUid
+      && !submission?.approvalXpAwarded;
 
     await updateDoc(doc(db, "submissions", submissionId), {
       status: reviewStatus,
+      approvalXpAwarded: shouldAwardApprovalXp ? true : submission?.approvalXpAwarded || false,
       reviewedAt: serverTimestamp(),
       reviewedBy: currentUser.email,
       updatedAt: serverTimestamp(),
     });
 
+    if (shouldAwardApprovalXp) {
+      await awardUserXp(submission.submittedByUid, XP_REWARDS.approvedSubmission);
+    }
+
     setSubmissions((currentSubmissions) => currentSubmissions.map((submission) => (
-      submission.id === submissionId ? { ...submission, status: reviewStatus } : submission
+      submission.id === submissionId
+        ? { ...submission, status: reviewStatus, approvalXpAwarded: shouldAwardApprovalXp || submission.approvalXpAwarded }
+        : submission
     )));
   }
 

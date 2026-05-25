@@ -14,7 +14,10 @@ import Account from './components/Account.jsx'
 import SubmitNugget from './components/SubmitNugget.jsx'
 import { useEffect } from 'react'
 import Categories from './components/HomePage/Categories.jsx'
+import CommunityNuggets from './components/HomePage/CommunityNuggets.jsx'
+import NuggetArchivePreview from './components/HomePage/NuggetArchivePreview.jsx'
 import MerchSection from './components/HomePage/MerchSection.jsx'
+import CommunityNuggetCategory from './components/Pages/CommunityNuggetCategory.jsx'
 import ExploreCategory from './components/Pages/ExploreCategory.jsx'
 import QuoteDetail from './components/Pages/QuoteDetail.jsx'
 import DailyNuggetChallenge from './components/Pages/DailyNuggetChallenge.jsx'
@@ -52,6 +55,7 @@ export default function App() {
         <Route path="/" element={
           <>
             <Header />
+            <NuggetArchivePreview />
             <TodaysNuggetRow />
             <Categories />
             <MerchSection />
@@ -70,6 +74,8 @@ export default function App() {
         <Route path="/games/survival" element={<SurvivalMode />} />
         <Route path="/games/real-or-fake" element={<RealOrFakeMode />} />
         <Route path="/daily-nugget-challenge" element={<DailyNuggetChallenge />} />
+        <Route path="/explore/community-nuggets/:communityCategoryKey" element={<CommunityNuggetCategory />} />
+        <Route path="/explore/community-nuggets" element={<CommunityNuggets />} />
         <Route path="/explore/:categoryKey/:quoteId" element={<QuoteDetail />} />
         <Route path="/explore/:categoryKey" element={<ExploreCategory />} />
       </Routes>
