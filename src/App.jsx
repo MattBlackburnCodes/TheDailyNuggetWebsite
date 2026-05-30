@@ -16,6 +16,7 @@ import { useEffect } from 'react'
 import Categories from './components/HomePage/Categories.jsx'
 import CommunityNuggets from './components/HomePage/CommunityNuggets.jsx'
 import NuggetArchivePreview from './components/HomePage/NuggetArchivePreview.jsx'
+import OriginalValueSection from './components/HomePage/OriginalValueSection.jsx'
 import MerchSection from './components/HomePage/MerchSection.jsx'
 import CommunityNuggetCategory from './components/Pages/CommunityNuggetCategory.jsx'
 import ExploreCategory from './components/Pages/ExploreCategory.jsx'
@@ -24,6 +25,8 @@ import DailyNuggetChallenge from './components/Pages/DailyNuggetChallenge.jsx'
 import DailyNuggetGames from './components/Pages/DailyNuggetGames.jsx'
 import SurvivalMode from './components/Pages/SurvivalMode.jsx'
 import RealOrFakeMode from './components/Pages/RealOrFakeMode.jsx'
+import EditorialPage from './components/Pages/EditorialPage.jsx'
+import SearchResults from './components/Pages/SearchResults.jsx'
 
 
 export default function App() {
@@ -57,6 +60,7 @@ export default function App() {
             <Header />
             <NuggetArchivePreview />
             <TodaysNuggetRow />
+            <OriginalValueSection />
             <Categories />
             <MerchSection />
           </>
@@ -66,8 +70,13 @@ export default function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/how-daily-nuggets-work" element={<EditorialPage pageKey="how-daily-nuggets-work" />} />
+        <Route path="/about-chick-e-nugget" element={<EditorialPage pageKey="about-chick-e-nugget" />} />
+        <Route path="/daily-motivation-habit" element={<EditorialPage pageKey="daily-motivation-habit" />} />
+        <Route path="/community-nuggets-guide" element={<EditorialPage pageKey="community-nuggets-guide" />} />
         <Route path="/merch" element={<Merch />} />
         <Route path="/submit" element={<SubmitNugget />} />
+        <Route path="/search" element={<SearchResults />} />
         <Route path="/account" element={<Account />} />
         <Route path="/games" element={<DailyNuggetGames />} />
         <Route path="/games/daily-challenge" element={<DailyNuggetChallenge />} />

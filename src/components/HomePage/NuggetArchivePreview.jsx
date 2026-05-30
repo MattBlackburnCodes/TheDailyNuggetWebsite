@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { LOCAL_CATEGORIES } from "../Pages/ExploreCategory.jsx";
+import QuoteActions from "../Pages/QuoteActions.jsx";
 
 function getCategoryGroups() {
   return Object.entries(LOCAL_CATEGORIES)
@@ -15,6 +16,7 @@ function getCategoryGroups() {
           id: `${categoryKey}-${quoteId}`,
           categoryKey,
           categoryTitle: category.title,
+          quoteId,
           text: item.text,
           author: item.author || null,
           route: `/explore/${categoryKey}/${quoteId}`,
@@ -78,6 +80,8 @@ export default function NuggetArchivePreview() {
   const selectedDateId = selectedDate.toLocaleDateString("en-CA");
   const currentEntry = getDailyEntry(selectedDateId, categoryGroups) || {
     categoryTitle: "Daily Nugget",
+    categoryKey: "quotes",
+    quoteId: 0,
     text: "A fresh nugget is getting ready for the day.",
     author: "The Daily Nugget",
     route: "/explore/quotes",
@@ -121,6 +125,13 @@ export default function NuggetArchivePreview() {
             <p>{currentEntry.text}</p>
             {currentEntry.author && <small>- {currentEntry.author}</small>}
           </Link>
+
+          <QuoteActions
+            categoryKey={currentEntry.categoryKey}
+            quote={currentEntry}
+            quoteId={currentEntry.quoteId}
+            compact
+          />
 
           <div className="home-archive-controls" aria-label="Nugget of the Day history controls">
             <button type="button" onClick={showPreviousDay} aria-label="Show previous day's nugget">

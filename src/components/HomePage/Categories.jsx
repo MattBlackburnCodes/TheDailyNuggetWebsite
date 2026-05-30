@@ -104,7 +104,7 @@ const categories = [
 
 export default function Categories() {
   return (
-    <div className="bg-blackburn-gray">
+    <div className="bg-blackburn-gray" id="categories">
       <div className="container pt-3 pb-5 bg-blackburn-gray text-gold">
         <div className="row">
           <div className="col-12 text-left">

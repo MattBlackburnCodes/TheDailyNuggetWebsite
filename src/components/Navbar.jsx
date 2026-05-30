@@ -1,12 +1,14 @@
 // AppNavbar.jsx
-import { useCallback, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/useAuth.js'
 
 export default function AppNavbar() {
   const navRef = useRef(null)
   const collapseRef = useRef(null)
   const { currentUser } = useAuth()
+  const [searchQuery, setSearchQuery] = useState('')
+  const navigate = useNavigate()
 
   // Initialize a Collapse instance once
   useEffect(() => {
@@ -46,6 +48,17 @@ export default function AppNavbar() {
     }
   }, [closeMenu])
 
+  function handleSearch(event) {
+    event.preventDefault()
+    const trimmedQuery = searchQuery.trim()
+
+    if (!trimmedQuery) return
+
+    navigate(`/search?q=${encodeURIComponent(trimmedQuery)}`)
+    setSearchQuery('')
+    closeMenu()
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-blackburn-black fixed-top" id="mainNav" ref={navRef}>
       <div className="container px-4 ">
@@ -64,6 +77,16 @@ export default function AppNavbar() {
         </button>
 
         <div className="collapse navbar-collapse " id="navbarResponsive" ref={collapseRef}>
+          <form className="navbar-search" role="search" onSubmit={handleSearch}>
+            <input
+              aria-label="Search Daily Nugget"
+              type="search"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              placeholder="Search nuggets"
+            />
+            <button type="submit">Search</button>
+          </form>
           <ul className="navbar-nav ms-auto ">
             <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/about" onClick={closeMenu}>About</Link></li>
             <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/contact" onClick={closeMenu}>Contact</Link></li>
