@@ -5,102 +5,163 @@ export default function PrivacyPolicy() {
         <main className="privacy-page bg-blackburn-gray text-gold">
             <PageMeta
                 title="Privacy Policy"
-                description="Read The Daily Nugget privacy policy, including information about app usage, contact submissions, third-party services, notifications, and privacy rights."
+                description="Read The Daily Nugget privacy policy for the website and app, including accounts, submissions, favorites, XP, notifications, ads, forms, Firebase, and third-party services."
                 path="/privacy-policy"
             />
             <section className="container privacy-page-content">
                 <div className="privacy-hero">
                     <p className="challenge-kicker">The Daily Nugget</p>
                     <h1>Privacy Policy</h1>
-                    <p className="privacy-updated">Last updated: December 9, 2025</p>
+                    <p className="privacy-updated">Last updated: May 30, 2026</p>
 
                     <p>
-                        Blackburn Works LLC (“we,” “us,” or “our”) operates The Daily Nugget mobile
-                        application (“the App”). This Privacy Policy explains how we collect, use,
-                        disclose, and protect your information when you use the App.
+                        Blackburn Works LLC (“we,” “us,” or “our”) operates The Daily Nugget website,
+                        related web features, and The Daily Nugget mobile application (collectively,
+                        “The Daily Nugget,” “the Service,” “the Site,” or “the App”). This Privacy
+                        Policy explains how we collect, use, disclose, and protect information when
+                        you use our website, app, games, account features, community submission tools,
+                        merchandise pages, contact forms, and related services.
                     </p>
 
                     <p>
-                        By using The Daily Nugget, you agree to the collection and use of information in
-                        accordance with this Privacy Policy.
+                        By using The Daily Nugget, you agree to the collection and use of information
+                        described in this Privacy Policy. If you do not agree, please do not use the
+                        Service.
                     </p>
                 </div>
 
             <ol className="policy-list privacy-policy-card">
 
-                {/* 1. Information We Collect */}
                 <li>
                     <h2>1. Information We Collect</h2>
 
                     <ol className="policy-sublist">
 
                         <li>
-                            <h3>1.1 Information You Provide to Us</h3>
+                            <h3>1.1 Account Information</h3>
 
                             <p>
-                                The Daily Nugget does not require a user account, login, or personal profile.
-                                Therefore, we do not collect:
+                                Some website features allow you to create an account using email and
+                                password authentication. When you create or use an account, we may collect
+                                and store information such as:
                             </p>
 
                             <ul>
-                                <li>Names</li>
-                                <li>Email addresses</li>
-                                <li>Phone numbers</li>
-                                <li>Mailing addresses</li>
-                                <li>Payment information</li>
-                                <li>Location data</li>
+                                <li>Email address</li>
+                                <li>Username or display name</li>
+                                <li>User ID created by our authentication provider</li>
+                                <li>Account creation and update timestamps</li>
+                                <li>Profile fields such as XP, streaks, badges, ranks, saved nugget counts, and submission counts</li>
                             </ul>
+                        </li>
+
+                        <li>
+                            <h3>1.2 Content You Submit or Save</h3>
 
                             <p>
-                                If you contact us directly (email, website form, etc.), we may receive the
-                                information you voluntarily provide, such as your name or email address.
+                                If you submit community nuggets, save favorites, play games, or interact
+                                with account features, we may store information related to those actions,
+                                including:
+                            </p>
+
+                            <ul>
+                                <li>Submitted quotes, jokes, affirmations, fun facts, calm reminders, or original nuggets</li>
+                                <li>Submission category, author, punchline, source note, or related text you provide</li>
+                                <li>Submission status, such as pending, approved, or rejected</li>
+                                <li>Favorites, saved nuggets, XP awards, streaks, badges, ranks, and other progress information</li>
+                                <li>Game progress or scores stored locally or in your account profile where applicable</li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <h3>1.3 Contact and Form Information</h3>
+
+                            <p>
+                                If you contact us by email or through a website form, we may receive the
+                                information you voluntarily provide, such as your name, email address,
+                                message, feedback, support request, or business inquiry.
+                            </p>
+                        </li>
+
+                        <li>
+                            <h3>1.4 Merchandise and Purchase Information</h3>
+
+                            <p>
+                                The Daily Nugget may display merchandise or link to third-party services
+                                that help manage product listings, printing, fulfillment, checkout, or
+                                customer support. We do not intentionally store full payment card numbers
+                                on our website. Payment, shipping, billing, and order details may be
+                                processed by third-party commerce, print-on-demand, or payment providers.
                             </p>
                         </li>
 
                     </ol>
                 </li>
 
-                {/* 2. Automatically Collected Information */}
                 <li>
                     <h2>2. Automatically Collected Information</h2>
 
                     <ol className="policy-sublist">
 
                         <li>
-                            <h3>2.1 Device & Usage Data</h3>
+                            <h3>2.1 Website, App, Device, and Usage Data</h3>
 
                             <p>
-                                When you use the App, we may collect limited technical information such as:
+                                When you use the Site or App, we and our service providers may collect
+                                limited technical and usage information, such as:
                             </p>
                             <ul>
-                                <li>Device type (iOS/Android model)</li>
+                                <li>Browser type, device type, and operating system</li>
+                                <li>App version, if you use the mobile app</li>
                                 <li>Operating system version</li>
-                                <li>App version</li>
-                                <li>Anonymous usage statistics (e.g., features used, crash logs)</li>
+                                <li>Pages viewed, features used, and general interaction events</li>
+                                <li>Approximate location inferred from IP address, where provided by third-party services</li>
+                                <li>Crash logs, error logs, and performance data</li>
                             </ul>
 
-                            <p>This information helps us improve performance and stability.</p>
+                            <p>This information helps us improve performance, stability, safety, and user experience.</p>
                         </li>
 
                         <li>
-                            <h3>2.2 Advertising Data (Google AdMob)</h3>
+                            <h3>2.2 Cookies and Local Storage</h3>
 
-                            <p>The Daily Nugget uses Google AdMob to display ads. AdMob may collect:</p>
+                            <p>
+                                The website may use browser storage, cookies, or similar technologies to
+                                support features such as favorites, appearance settings, game progress,
+                                streaks, login sessions, search behavior, and basic site functionality.
+                            </p>
+                            <p>
+                                Some information may be stored locally on your device unless you create an
+                                account or use a feature that stores information in the cloud.
+                            </p>
+                        </li>
+
+                        <li>
+                            <h3>2.3 Advertising Data</h3>
+
+                            <p>
+                                The Daily Nugget app may use Google AdMob to display ads. The website may
+                                use Google AdSense or similar advertising services if ads are enabled.
+                                Advertising providers may collect or receive information such as:
+                            </p>
 
                             <ul>
-                                <li>Your device’s advertising identifier (IDFA/AAID)</li>
-                                <li>Approximate location (coarse, not GPS)</li>
-                                <li>Interactions with ads (views/clicks)</li>
+                                <li>Device or browser information</li>
+                                <li>Advertising identifiers, where available</li>
+                                <li>Cookie or similar identifiers</li>
+                                <li>Approximate location, such as country or region</li>
+                                <li>Interactions with ads, such as views or clicks</li>
                             </ul>
 
-                            <p>We have enabled child-safe, restricted content filters to prevent adult or inappropriate ads from appearing.</p>
-                            <p>Users can reset or limit their advertising identifier in their device settings.</p>
+                            <p>
+                                You can manage ad personalization through your device settings, browser
+                                settings, or Google advertising settings where available.
+                            </p>
                         </li>
 
                     </ol>
                 </li>
 
-                {/* 3. How We Use the Information */}
                 <li>
                     <h2>3. How We Use Information</h2>
 
@@ -109,47 +170,69 @@ export default function PrivacyPolicy() {
                             <h3>3.1 Purpose of Data Use</h3>
                             <p>We use collected information to:</p>
                             <ul>
-                                <li>Improve app performance and user experience</li>
+                                <li>Create, authenticate, and manage user accounts</li>
+                                <li>Store favorites, submissions, XP, streaks, badges, ranks, and profile progress</li>
+                                <li>Review, approve, reject, and display community-submitted nuggets</li>
+                                <li>Provide quote, joke, fact, affirmation, search, game, and personalization features</li>
+                                <li>Respond to messages, support requests, or feedback</li>
+                                <li>Improve website and app performance and user experience</li>
                                 <li>Fix bugs and technical issues</li>
-                                <li>Display safe and relevant advertisements</li>
+                                <li>Display, measure, and improve advertisements if ads are enabled</li>
                                 <li>Understand how features are used</li>
-                                <li>Provide notifications if enabled</li>
+                                <li>Provide app notifications if enabled</li>
+                                <li>Protect the Service from spam, abuse, fraud, or misuse</li>
                             </ul>
                         </li>
                     </ol>
                 </li>
 
-                {/* 4. Notifications */}
                 <li>
                     <h2>4. Notifications</h2>
                     <p>
                         If you opt in, the App may send daily notifications (quotes, affirmations, jokes,
                         or fun facts). You can disable notifications at any time through your device
-                        settings. No personal information is stored or used for this feature.
+                        settings. Notification permissions and delivery may be handled by your device
+                        platform or app service providers.
                     </p>
                 </li>
 
-                {/* 5. Third-Party Services */}
                 <li>
                     <h2>5. Third-Party Services</h2>
-                    <p>The App uses the following services, which have their own privacy policies:</p>
+                    <p>
+                        The Daily Nugget may use third-party services that process information according
+                        to their own privacy policies. These may include:
+                    </p>
                     <ul>
-                        <li>Google AdMob — https://policies.google.com/privacy</li>
-                        <li>Expo / React Native Services — https://expo.dev/privacy</li>
+                        <li>Firebase / Google Cloud for authentication, account profiles, and database storage</li>
+                        <li>Google AdMob for mobile app advertising</li>
+                        <li>Google AdSense or related Google advertising services for website advertising, if enabled</li>
+                        <li>Formspree or similar form services for contact form submissions</li>
+                        <li>Printify or related commerce/fulfillment providers for merchandise features</li>
+                        <li>Expo / React Native services for mobile app development and app functionality</li>
+                        <li>Vercel or similar hosting providers for website hosting and serverless functions</li>
                     </ul>
-                    <p>We encourage you to review their policies for more details.</p>
+                    <p>
+                        We encourage you to review the privacy policies of any third-party services you
+                        interact with through the Site or App.
+                    </p>
                 </li>
 
-                {/* 6. Data Retention */}
                 <li>
                     <h2>6. Data Retention</h2>
                     <p>
-                        Since we do not collect personal data, we only retain anonymous analytics,
-                        crash logs, and ad performance data for as long as necessary to improve the app.
+                        We retain account information, profile data, favorites, submissions, XP, streaks,
+                        badges, ranks, and related user data for as long as needed to provide the Service,
+                        comply with legal obligations, resolve disputes, enforce our terms, and maintain
+                        site safety.
+                    </p>
+                    <p>
+                        Community submissions may remain visible after approval unless removed by us or
+                        deleted according to an applicable request. Technical logs, analytics, crash logs,
+                        and advertising data may be retained by us or third-party providers according to
+                        their retention practices.
                     </p>
                 </li>
 
-                {/* 7. Children’s Privacy */}
                 <li>
                     <h2>7. Children’s Privacy</h2>
                     <p>
@@ -159,37 +242,38 @@ export default function PrivacyPolicy() {
                     </p>
                 </li>
 
-                {/* 8. Security */}
                 <li>
                     <h2>8. Security</h2>
                     <p>
-                        We take reasonable measures to protect the App and data. However, no method of
-                        transmission or storage is 100% secure. Since no personal data is collected, risk
-                        is minimal.
+                        We take reasonable measures to protect the Site, App, accounts, and data. However,
+                        no method of transmission or storage is 100% secure. You are responsible for
+                        keeping your account login information safe and for using a strong password.
                     </p>
                 </li>
 
-                {/* 9. Privacy Rights */}
                 <li>
                     <h2>9. Your Privacy Rights</h2>
                     <p>
-                        Because we do not collect personal information, there is no personal data to
-                        access, modify, or delete. If you contact us directly, we will delete any
-                        voluntarily provided information upon request.
+                        Depending on where you live, you may have rights to request access, correction,
+                        deletion, or limitation of certain personal information. You may also be able to
+                        opt out of certain advertising or analytics features through your browser, device,
+                        or third-party provider settings.
+                    </p>
+                    <p>
+                        To request help with account data or information you submitted, contact us using
+                        the email address below. We may need to verify your request before taking action.
                     </p>
                 </li>
 
-                {/* 10. Changes */}
                 <li>
                     <h2>10. Changes to This Policy</h2>
                     <p>
                         We may update this Privacy Policy from time to time. When we do, the “Last
-                        updated” date will be changed at the top of this page. Continued use of the App
-                        constitutes acceptance of any changes.
+                        updated” date will be changed at the top of this page. Continued use of the Site
+                        or App after changes means you accept the updated Privacy Policy.
                     </p>
                 </li>
 
-                {/* 11. Contact */}
                 <li>
                     <h2>11. Contact Us</h2>
                     <p>

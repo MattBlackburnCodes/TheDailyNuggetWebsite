@@ -4,7 +4,7 @@ import Header from './components/Header.jsx'
 import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
-import TodaysNuggetRow  from './components/HomePage/TodaysNuggetRow.jsx'
+import NuggetGuide from './components/NuggetGuide.jsx'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import PrivacyPolicy from './components/PrivacyPolicy.jsx'
 import TermsOfService from './components/TermsOfService.jsx'
@@ -59,7 +59,6 @@ export default function App() {
           <>
             <Header />
             <NuggetArchivePreview />
-            <TodaysNuggetRow />
             <OriginalValueSection />
             <Categories />
             <MerchSection />
@@ -88,6 +87,7 @@ export default function App() {
         <Route path="/explore/:categoryKey/:quoteId" element={<QuoteDetail />} />
         <Route path="/explore/:categoryKey" element={<ExploreCategory />} />
       </Routes>
+      <NuggetGuide />
       <Footer />
     </Router>
   );
