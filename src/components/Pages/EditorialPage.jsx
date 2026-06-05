@@ -63,7 +63,7 @@ const editorialPages = {
       {
         heading: "Where Chick E. Nugget Shows Up",
         body: [
-          "Chick E. Nugget appears in original quote categories, games, merch, and the overall Daily Nugget experience. As the site grows, the mascot can also support themes, badges, streak rewards, and community features.",
+          "Chick E. Nugget appears in original quote categories, games, daily prompts, and the overall Daily Nugget experience. As the site grows, the mascot can also support themes, badges, streak rewards, and community features.",
           "That gives The Daily Nugget a stronger identity than a plain motivational site. The mascot turns the daily habit into something visitors can recognize and return to.",
         ],
       },
@@ -71,7 +71,7 @@ const editorialPages = {
     links: [
       { label: "Read Chick E. Nugget Quotes", to: "/explore/chick-e-nugget-quotes" },
       { label: "Play Games", to: "/games" },
-      { label: "Shop Merch", to: "/merch" },
+      { label: "Explore Categories", to: "/#categories" },
     ],
   },
   "daily-motivation-habit": {

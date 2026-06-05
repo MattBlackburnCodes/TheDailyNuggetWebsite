@@ -7,7 +7,7 @@ export default function Header() {
         <div>
             <PageMeta
                 title="The Daily Nugget"
-                description="The Daily Nugget delivers quick quotes, affirmations, jokes, fun facts, quote games, and Chick E. Nugget merch for a lighter daily habit."
+                description="The Daily Nugget delivers quick quotes, affirmations, jokes, fun facts, quote games, and Chick E. Nugget originals for a lighter daily habit."
                 path="/"
             />
             <div className="bg-blackburn-black text-gold py-5" >

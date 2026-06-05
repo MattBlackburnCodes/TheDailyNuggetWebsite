@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
                         “The Daily Nugget,” “the Service,” “the Site,” or “the App”). This Privacy
                         Policy explains how we collect, use, disclose, and protect information when
                         you use our website, app, games, account features, community submission tools,
-                        merchandise pages, contact forms, and related services.
+                        contact forms, and related services.
                     </p>
 
                     <p>
@@ -80,18 +80,6 @@ export default function PrivacyPolicy() {
                                 If you contact us by email or through a website form, we may receive the
                                 information you voluntarily provide, such as your name, email address,
                                 message, feedback, support request, or business inquiry.
-                            </p>
-                        </li>
-
-                        <li>
-                            <h3>1.4 Merchandise and Purchase Information</h3>
-
-                            <p>
-                                The Daily Nugget may display merchandise or link to third-party services
-                                that help manage product listings, printing, fulfillment, checkout, or
-                                customer support. We do not intentionally store full payment card numbers
-                                on our website. Payment, shipping, billing, and order details may be
-                                processed by third-party commerce, print-on-demand, or payment providers.
                             </p>
                         </li>
 
@@ -207,7 +195,6 @@ export default function PrivacyPolicy() {
                         <li>Google AdMob for mobile app advertising</li>
                         <li>Google AdSense or related Google advertising services for website advertising, if enabled</li>
                         <li>Formspree or similar form services for contact form submissions</li>
-                        <li>Printify or related commerce/fulfillment providers for merchandise features</li>
                         <li>Expo / React Native services for mobile app development and app functionality</li>
                         <li>Vercel or similar hosting providers for website hosting and serverless functions</li>
                     </ul>

@@ -14,7 +14,7 @@ export default function About() {
                         <h2>About The Daily Nugget</h2>
                         <p className="lead text-white">Life gets busy, but sometimes all it takes is a little nugget of wisdom, laughter, or encouragement to reset your mindset. That is why we created The Daily Nugget, a pocket-sized source of positivity and fun.</p>
                         <p className="lead text-white">Our mission is simple: to make your day a little brighter, one nugget at a time. Whether you are starting your morning, taking a break, or winding down, The Daily Nugget is here to lift your mood and feed your mind.</p>
-                        <p className="lead text-white">The experience is intentionally lightweight: tap into a mood, read something useful, play a quick quote challenge, or browse Chick E. Nugget merch without getting pulled into endless scrolling.</p>
+                        <p className="lead text-white">The experience is intentionally lightweight: tap into a daily nugget, read something useful, play a quick quote challenge, or explore community-powered encouragement without getting pulled into endless scrolling.</p>
                     </div>
 
                     <div className="col-12 col-lg-5">

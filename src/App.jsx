@@ -5,11 +5,10 @@ import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import NuggetGuide from './components/NuggetGuide.jsx'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import PrivacyPolicy from './components/PrivacyPolicy.jsx'
 import TermsOfService from './components/TermsOfService.jsx'
 import Disclaimer from './components/Disclaimer.jsx'
-import Merch from './components/Merch.jsx'
 import Account from './components/Account.jsx'
 import SubmitNugget from './components/SubmitNugget.jsx'
 import { useEffect } from 'react'
@@ -17,7 +16,6 @@ import Categories from './components/HomePage/Categories.jsx'
 import CommunityNuggets from './components/HomePage/CommunityNuggets.jsx'
 import NuggetArchivePreview from './components/HomePage/NuggetArchivePreview.jsx'
 import OriginalValueSection from './components/HomePage/OriginalValueSection.jsx'
-import MerchSection from './components/HomePage/MerchSection.jsx'
 import CommunityNuggetCategory from './components/Pages/CommunityNuggetCategory.jsx'
 import ExploreCategory from './components/Pages/ExploreCategory.jsx'
 import QuoteDetail from './components/Pages/QuoteDetail.jsx'
@@ -61,7 +59,6 @@ export default function App() {
             <NuggetArchivePreview />
             <OriginalValueSection />
             <Categories />
-            <MerchSection />
           </>
         }/>
         <Route path="/about" element={<About />} />
@@ -73,7 +70,7 @@ export default function App() {
         <Route path="/about-chick-e-nugget" element={<EditorialPage pageKey="about-chick-e-nugget" />} />
         <Route path="/daily-motivation-habit" element={<EditorialPage pageKey="daily-motivation-habit" />} />
         <Route path="/community-nuggets-guide" element={<EditorialPage pageKey="community-nuggets-guide" />} />
-        <Route path="/merch" element={<Merch />} />
+        <Route path="/merch" element={<Navigate to="/" replace />} />
         <Route path="/submit" element={<SubmitNugget />} />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/account" element={<Account />} />

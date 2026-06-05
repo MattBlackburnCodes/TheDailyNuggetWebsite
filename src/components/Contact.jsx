@@ -6,7 +6,7 @@ export default function Contact() {
         <section id="contact" className="contact-page bg-blackburn-black">
             <PageMeta
                 title="Contact"
-                description="Contact The Daily Nugget to share feedback, submit a quote, suggest a game idea, ask about merch, or connect with Blackburn Works LLC."
+                description="Contact The Daily Nugget to share feedback, submit a quote, suggest a game idea, or connect with Blackburn Works LLC."
                 path="/contact"
             />
             <div className="container contact-page-content">

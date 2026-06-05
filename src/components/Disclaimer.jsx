@@ -5,7 +5,7 @@ export default function Disclaimer() {
         <main className="privacy-page bg-blackburn-gray text-gold">
             <PageMeta
                 title="Disclaimer"
-                description="Read The Daily Nugget disclaimer about motivational content, quote attribution, AI-generated game prompts, merchandise, external links, and professional advice."
+                description="Read The Daily Nugget disclaimer about motivational content, quote attribution, AI-generated game prompts, external links, and professional advice."
                 path="/disclaimer"
             />
             <section className="container privacy-page-content">
@@ -75,16 +75,7 @@ export default function Disclaimer() {
                     </li>
 
                     <li>
-                        <h2>6. Merchandise</h2>
-                        <p>
-                            Product images, descriptions, pricing, availability, shipping times, and
-                            fulfillment details may change. Merchandise may be managed or fulfilled by
-                            third-party platforms, printers, or commerce services.
-                        </p>
-                    </li>
-
-                    <li>
-                        <h2>7. External Links and Third-Party Services</h2>
+                        <h2>6. External Links and Third-Party Services</h2>
                         <p>
                             The Daily Nugget may link to third-party websites, platforms, stores, or
                             services. We are not responsible for the content, policies, availability, or
@@ -93,7 +84,7 @@ export default function Disclaimer() {
                     </li>
 
                     <li>
-                        <h2>8. No Warranties</h2>
+                        <h2>7. No Warranties</h2>
                         <p>
                             The Daily Nugget is provided "as is" and "as available." We make no
                             warranties that the website, app, games, content, or integrations will be
@@ -102,7 +93,7 @@ export default function Disclaimer() {
                     </li>
 
                     <li>
-                        <h2>9. Contact Us</h2>
+                        <h2>8. Contact Us</h2>
                         <p>If you have questions about this Disclaimer, contact us at:</p>
                         <p><strong>Email:</strong> jointhecrispycrew@gmail.com</p>
                         <p><strong>Website:</strong> https://thedailynugget.app</p>

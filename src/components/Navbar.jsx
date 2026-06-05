@@ -92,7 +92,6 @@ export default function AppNavbar() {
             <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/contact" onClick={closeMenu}>Contact</Link></li>
             {/*<li className="nav-item"><Link className="nav-link text-gold fw-bold" to={{ pathname: "/", hash: "#contact" }} onClick={closeMenu}>Contact</Link></li>*/}
             <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/privacy-policy" onClick={closeMenu}>Privacy Policy</Link></li>
-            <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/merch" onClick={closeMenu}>Merch</Link></li>
             <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/games" onClick={closeMenu}>Games</Link></li>
             <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/submit" onClick={closeMenu}>Submit</Link></li>
             <li className="nav-item"><Link className="nav-link text-gold fw-bold" to="/account" onClick={closeMenu}>{currentUser ? 'Account' : 'Sign Up'}</Link></li>

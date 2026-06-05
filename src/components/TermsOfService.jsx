@@ -5,7 +5,7 @@ export default function TermsOfService() {
         <main className="privacy-page bg-blackburn-gray text-gold">
             <PageMeta
                 title="Terms of Service"
-                description="Review The Daily Nugget terms covering site use, quote games, local scores and streaks, merchandise, submissions, intellectual property, and service changes."
+                description="Review The Daily Nugget terms covering site use, quote games, local scores and streaks, submissions, intellectual property, and service changes."
                 path="/terms-of-service"
             />
             <section className="container privacy-page-content">
@@ -16,7 +16,7 @@ export default function TermsOfService() {
 
                     <p>
                         These Terms of Service govern your access to and use of The Daily Nugget
-                        website, games, merchandise pages, and related mobile app experiences operated
+                        website, games, account features, and related mobile app experiences operated
                         by Blackburn Works LLC ("we," "us," or "our").
                     </p>
 
@@ -31,7 +31,7 @@ export default function TermsOfService() {
                         <h2>1. Use of The Daily Nugget</h2>
                         <p>
                             The Daily Nugget provides quotes, affirmations, jokes, fun facts, games,
-                            merchandise previews, and related motivational content for personal,
+                            community submissions, and related motivational content for personal,
                             entertainment, and informational use.
                         </p>
                         <p>
@@ -78,21 +78,7 @@ export default function TermsOfService() {
                     </li>
 
                     <li>
-                        <h2>5. Merchandise and Third-Party Fulfillment</h2>
-                        <p>
-                            Merchandise shown on The Daily Nugget may be provided, fulfilled, printed,
-                            shipped, or processed through third-party services such as Printify or
-                            connected commerce platforms.
-                        </p>
-                        <p>
-                            Product availability, pricing, shipping times, returns, taxes, and checkout
-                            details may depend on those third-party providers. We may update or remove
-                            merchandise listings at any time.
-                        </p>
-                    </li>
-
-                    <li>
-                        <h2>6. Intellectual Property</h2>
+                        <h2>5. Intellectual Property</h2>
                         <p>
                             The Daily Nugget name, branding, mascot, designs, site layout, original
                             copy, games, and other original materials are owned by Blackburn Works LLC
@@ -105,7 +91,7 @@ export default function TermsOfService() {
                     </li>
 
                     <li>
-                        <h2>7. Quotes and Third-Party Content</h2>
+                        <h2>6. Quotes and Third-Party Content</h2>
                         <p>
                             Some quotes, references, names, links, or external services may belong to
                             third parties. We do our best to present quote information accurately, but
@@ -115,7 +101,7 @@ export default function TermsOfService() {
                     </li>
 
                     <li>
-                        <h2>8. Prohibited Conduct</h2>
+                        <h2>7. Prohibited Conduct</h2>
                         <p>You agree not to:</p>
                         <ul>
                             <li>Use the service for unlawful, harmful, or abusive activity</li>
@@ -127,16 +113,16 @@ export default function TermsOfService() {
                     </li>
 
                     <li>
-                        <h2>9. Service Changes and Availability</h2>
+                        <h2>8. Service Changes and Availability</h2>
                         <p>
                             We may update, suspend, or discontinue any part of The Daily Nugget at any
-                            time. We do not guarantee that the website, app, games, product listings, or
+                            time. We do not guarantee that the website, app, games, account features, or
                             integrations will always be available or error-free.
                         </p>
                     </li>
 
                     <li>
-                        <h2>10. Limitation of Liability</h2>
+                        <h2>9. Limitation of Liability</h2>
                         <p>
                             To the fullest extent permitted by law, Blackburn Works LLC is not liable
                             for indirect, incidental, special, consequential, or punitive damages arising
@@ -145,7 +131,7 @@ export default function TermsOfService() {
                     </li>
 
                     <li>
-                        <h2>11. Changes to These Terms</h2>
+                        <h2>10. Changes to These Terms</h2>
                         <p>
                             We may update these Terms from time to time. When we do, the "Last updated"
                             date will be changed. Continued use of The Daily Nugget after changes means
@@ -154,7 +140,7 @@ export default function TermsOfService() {
                     </li>
 
                     <li>
-                        <h2>12. Contact Us</h2>
+                        <h2>11. Contact Us</h2>
                         <p>If you have questions about these Terms, contact us at:</p>
                         <p><strong>Email:</strong> jointhecrispycrew@gmail.com</p>
                         <p><strong>Website:</strong> https://thedailynugget.app</p>
