@@ -1,6 +1,71 @@
-import nugget from '../assets/New_App_Image.png'
+import { useEffect, useRef, useState } from 'react'
 import appLogo from '../assets/AppStoreImage.svg'
 import PageMeta from './PageMeta.jsx'
+import normalFace from '../assets/mascot-faces/nugget-normal.png'
+import winkFace from '../assets/mascot-faces/nugget-wink.png'
+import happySquintFace from '../assets/mascot-faces/nugget-happy-squint.png'
+import coolFace from '../assets/mascot-faces/nugget-cool.png'
+import surprisedFace from '../assets/mascot-faces/nugget-surprised.png'
+import kissFace from '../assets/mascot-faces/nugget-kiss.png'
+import happyOpenFace from '../assets/mascot-faces/nugget-happy-open.png'
+import excitedSquintFace from '../assets/mascot-faces/nugget-excited-squint.png'
+import softSmileFace from '../assets/mascot-faces/nugget-soft-smile.png'
+
+const mascotExpressions = [
+    { name: 'wink', image: winkFace, className: 'is-rocking', duration: 2600 },
+    { name: 'happy squint', image: happySquintFace, className: 'is-excited', duration: 2400 },
+    { name: 'cool', image: coolFace, className: 'is-cool', duration: 2400 },
+    { name: 'surprised', image: surprisedFace, className: 'is-pop', duration: 2200 },
+    { name: 'kiss', image: kissFace, className: 'is-kissy', duration: 2600 },
+    { name: 'happy', image: happyOpenFace, className: 'is-bouncy', duration: 2400 },
+    { name: 'excited squint', image: excitedSquintFace, className: 'is-excited', duration: 2400 },
+    { name: 'soft smile', image: softSmileFace, className: 'is-soft-rock', duration: 2400 },
+]
+
+function getRandomExpression(previousExpression) {
+    const options = mascotExpressions.filter((expression) => expression.name !== previousExpression?.name)
+    return options[Math.floor(Math.random() * options.length)]
+}
+
+function AnimatedHeroMascot() {
+    const [activeExpression, setActiveExpression] = useState(null)
+    const expressionRef = useRef(null)
+
+    useEffect(() => {
+        let resetTimerId
+
+        const intervalId = window.setInterval(() => {
+            const nextExpression = getRandomExpression(expressionRef.current)
+            expressionRef.current = nextExpression
+            setActiveExpression(nextExpression)
+
+            resetTimerId = window.setTimeout(() => {
+                setActiveExpression(null)
+            }, nextExpression.duration)
+        }, 15000)
+
+        return () => {
+            window.clearInterval(intervalId)
+            window.clearTimeout(resetTimerId)
+        }
+    }, [])
+
+    const expression = activeExpression || {
+        name: 'normal',
+        image: normalFace,
+        className: '',
+    }
+
+    return (
+        <div className="hero-mascot-stage" aria-label="Chick E. Nugget mascot">
+            <img
+                className={`hero-mascot-face ${expression.className}`}
+                src={expression.image}
+                alt="Chick E. Nugget"
+            />
+        </div>
+    )
+}
 
 export default function Header() {
     return (
@@ -38,12 +103,7 @@ export default function Header() {
 
                     {/* Hero image */}
                     <div className="col-12 col-lg-5 d-flex justify-content-center justify-content-lg-end">
-                        <img
-                        className="img-fluid rounded"
-                        style={{ maxWidth: 320, width: "100%" }}
-                        src={nugget}
-                        alt="Chick E. Nugget"
-                        />
+                        <AnimatedHeroMascot />
                     </div>
                     </div>
                 </div>
