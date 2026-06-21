@@ -1,6 +1,10 @@
 import { useSiteSettings } from "../context/useSiteSettings.js";
 
 const colorOptions = [
+  { label: "Nugget Cream", value: "#fff4bf" },
+  { label: "Sunburst Yellow", value: "#ffcf1a" },
+  { label: "Nugget Orange", value: "#ff6a00" },
+  { label: "Logo Ink", value: "#18140f" },
   { label: "Ketchup Splat", value: "#FF3B30" },
   { label: "Sriracha Splash", value: "#D84315" },
   { label: "Buffalo Sauce", value: "#FF6F00" },
@@ -24,6 +28,10 @@ const colorOptions = [
 
 const fontOptions = [
   "System",
+  "Nunito",
+  "Baloo 2",
+  "Chewy",
+  "Arial Rounded MT Bold",
   "Arial",
   "Courier New",
   "Georgia",

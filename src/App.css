@@ -2304,3 +2304,731 @@ button.challenge-share-link {
     align-items: stretch;
   }
 }
+
+/* App icon inspired theme refresh */
+:root {
+  --nugget-body: "Nunito", "Arial Rounded MT Bold", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --nugget-heading: "Baloo 2", "Nunito", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --nugget-display: "Chewy", "Baloo 2", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --nugget-ink: #18140f;
+  --nugget-ink-soft: #463523;
+  --nugget-cream: #fff8df;
+  --nugget-card: #fff4bf;
+  --nugget-card-light: #fffbea;
+  --nugget-sun: #ffcf1a;
+  --nugget-sun-soft: #ffe86b;
+  --nugget-sun-deep: #ffae00;
+  --nugget-orange: #ff6a00;
+  --nugget-orange-deep: #d94c00;
+  --nugget-red-orange: #ff3d1f;
+  --nugget-border: rgba(255, 174, 0, 0.56);
+  --nugget-shadow: rgba(130, 72, 0, 0.18);
+  --nugget-panel-shadow: 0 18px 34px rgba(120, 69, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+body {
+  background: var(--nugget-cream);
+  color: var(--nugget-ink);
+  font-family: var(--nugget-body);
+}
+
+#root,
+.site-settings-scope {
+  background: var(--nugget-cream);
+  color: var(--nugget-ink);
+  font-family: var(--nugget-body);
+  min-height: 100vh;
+}
+
+.site-settings-scope {
+  --bs-body-font-family: var(--nugget-body);
+  --bs-body-color: var(--nugget-ink);
+}
+
+.site-settings-scope h1,
+.site-settings-scope h2,
+.site-settings-scope h3,
+.site-settings-scope h4,
+.site-settings-scope h5,
+.site-settings-scope h6,
+.site-settings-scope .navbar-brand,
+.site-settings-scope .btn,
+.site-settings-scope button {
+  letter-spacing: 0;
+}
+
+.site-settings-scope h1,
+.site-settings-scope h2,
+.site-settings-scope h3,
+.site-settings-scope h4,
+.site-settings-scope h5,
+.site-settings-scope h6 {
+  color: var(--nugget-ink);
+  font-family: var(--nugget-heading);
+  font-weight: 800;
+}
+
+.site-settings-scope a {
+  color: var(--nugget-orange-deep);
+}
+
+.site-settings-scope a:hover {
+  color: var(--nugget-ink);
+}
+
+.site-settings-scope .text-gold,
+.site-settings-scope .text-white {
+  color: var(--nugget-ink) !important;
+}
+
+.site-settings-scope .bg-blackburn-gray,
+.site-settings-scope .bg-blackburn-black,
+.games-page,
+.challenge-page {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.75), transparent 19rem),
+    radial-gradient(circle at 84% 18%, rgba(255, 106, 0, 0.22), transparent 18rem),
+    repeating-conic-gradient(from -18deg at 50% -8%, rgba(255, 255, 255, 0.24) 0deg 8deg, rgba(255, 207, 26, 0.12) 8deg 16deg),
+    linear-gradient(180deg, #fff9d6 0%, #ffe056 44%, #ffb300 100%) !important;
+  color: var(--nugget-ink);
+}
+
+.site-settings-scope .container.bg-blackburn-gray,
+.site-settings-scope .container.bg-blackburn-black,
+.site-settings-scope .container-fluid.bg-blackburn-gray,
+.site-settings-scope .container-fluid.bg-blackburn-black {
+  background: transparent !important;
+}
+
+.site-settings-scope .bg-blackburn-dark-yellow {
+  background: rgba(255, 106, 0, 0.12) !important;
+  color: var(--nugget-ink) !important;
+}
+
+.site-settings-scope .rounded-pill.bg-blackburn-dark-yellow,
+.site-settings-scope .challenge-kicker,
+.site-settings-scope .quote-detail-label,
+.site-settings-scope .game-card-label,
+.site-settings-scope .community-nugget-badge,
+.site-settings-scope .search-result-category,
+.site-settings-scope .archive-card-meta span,
+.site-settings-scope .archive-card-meta a {
+  align-items: center;
+  background: linear-gradient(180deg, var(--nugget-orange), var(--nugget-orange-deep)) !important;
+  border: 2px solid #fff3cf;
+  border-radius: 999px;
+  box-shadow: 0 4px 0 rgba(129, 51, 0, 0.18);
+  color: #fff !important;
+  display: inline-flex;
+  font-family: var(--nugget-heading);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  padding: 0.44rem 0.82rem;
+  text-shadow: 0 1px 0 rgba(111, 36, 0, 0.35);
+  text-transform: none;
+  width: fit-content;
+}
+
+.site-settings-scope .game-card-label:empty {
+  display: none;
+}
+
+#mainNav.navbar {
+  background: rgba(255, 207, 26, 0.96) !important;
+  border-bottom: 3px solid rgba(255, 106, 0, 0.72);
+  box-shadow: 0 12px 24px rgba(126, 72, 0, 0.18);
+  font-family: var(--nugget-body);
+}
+
+#mainNav .navbar-brand {
+  color: var(--nugget-ink) !important;
+  font-family: var(--nugget-display);
+  font-size: 1.55rem;
+  line-height: 1;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.72);
+}
+
+#mainNav .nav-link {
+  border-radius: 999px;
+  color: var(--nugget-ink) !important;
+  font-family: var(--nugget-heading);
+  font-weight: 800 !important;
+  padding-inline: 0.72rem;
+}
+
+#mainNav .nav-link:hover,
+#mainNav .nav-link:focus-visible {
+  background: rgba(255, 255, 255, 0.42);
+  color: var(--nugget-orange-deep) !important;
+}
+
+#mainNav .navbar-toggler {
+  background: var(--nugget-cream);
+  border: 2px solid rgba(24, 20, 15, 0.26);
+  border-radius: 999px;
+  box-shadow: 0 4px 0 rgba(129, 51, 0, 0.14);
+}
+
+#mainNav .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.navbar-search input,
+.account-form input,
+.appearance-settings-grid select,
+.submission-form input,
+.submission-form select,
+.submission-form textarea,
+.contact-form .form-control,
+.merch-controls select {
+  background: #fffdf2;
+  border: 2px solid rgba(255, 174, 0, 0.48);
+  border-radius: 8px;
+  color: var(--nugget-ink);
+  font-family: var(--nugget-body);
+  font-weight: 800;
+  box-shadow: inset 0 2px 0 rgba(255, 207, 26, 0.16);
+}
+
+.navbar-search input:focus,
+.account-form input:focus,
+.appearance-settings-grid select:focus,
+.submission-form input:focus,
+.submission-form select:focus,
+.submission-form textarea:focus,
+.contact-form .form-control:focus,
+.merch-controls select:focus {
+  border-color: var(--nugget-orange);
+  box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.18);
+  outline: none;
+}
+
+.account-form label,
+.appearance-settings-grid label,
+.submission-form label,
+.contact-form .form-label,
+.merch-controls label,
+.account-stats-grid span {
+  color: var(--nugget-orange-deep) !important;
+  font-family: var(--nugget-heading);
+  font-weight: 800;
+}
+
+.navbar-search button,
+.home-archive-controls button,
+.btn.btn-blackburn-gold {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--nugget-orange);
+  --bs-btn-border-color: #fff3cf;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--nugget-red-orange);
+  --bs-btn-hover-border-color: #fff7d7;
+  --bs-btn-focus-shadow-rgb: 255, 106, 0;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--nugget-orange-deep);
+  --bs-btn-active-border-color: #fff3cf;
+  --bs-btn-disabled-color: rgba(255, 255, 255, 0.78);
+  --bs-btn-disabled-bg: #c88835;
+  --bs-btn-disabled-border-color: #ffe0a6;
+  background: linear-gradient(180deg, var(--nugget-orange), var(--nugget-orange-deep)) !important;
+  border: 2px solid #fff3cf !important;
+  border-radius: 999px;
+  box-shadow: 0 5px 0 rgba(119, 44, 0, 0.26), 0 12px 22px rgba(255, 106, 0, 0.2);
+  color: #fff !important;
+  font-family: var(--nugget-heading);
+  font-weight: 800;
+  line-height: 1.1;
+  text-shadow: 0 1px 0 rgba(111, 36, 0, 0.38);
+}
+
+.navbar-search button:hover,
+.home-archive-controls button:hover:not(:disabled),
+.btn.btn-blackburn-gold:hover {
+  background: linear-gradient(180deg, #ff7b1a, var(--nugget-red-orange)) !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.home-archive-controls button:disabled,
+.btn.btn-blackburn-gold:disabled {
+  box-shadow: none;
+  opacity: 0.62;
+  transform: none;
+}
+
+.site-settings-scope .bg-blackburn-black.text-gold.py-5 {
+  overflow: hidden;
+  padding-bottom: clamp(3rem, 7vw, 5rem) !important;
+  padding-top: clamp(7rem, 12vw, 9rem) !important;
+  position: relative;
+}
+
+.site-settings-scope .bg-blackburn-black.text-gold.py-5::after {
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.66) 0 9%, transparent 10% 100%),
+    radial-gradient(circle, rgba(255, 106, 0, 0.24) 0 11%, transparent 12% 100%);
+  background-position: 0 0, 22px 22px;
+  background-size: 44px 44px;
+  content: "";
+  inset: 0;
+  opacity: 0.18;
+  pointer-events: none;
+  position: absolute;
+}
+
+.site-settings-scope .bg-blackburn-black.text-gold.py-5 > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.site-settings-scope .bg-blackburn-black.text-gold.py-5 h1 {
+  color: var(--nugget-ink) !important;
+  font-family: var(--nugget-display);
+  font-weight: 400 !important;
+  line-height: 0.98;
+  max-width: 760px;
+  text-shadow: 0 3px 0 rgba(255, 255, 255, 0.68), 0 8px 0 rgba(255, 106, 0, 0.18);
+}
+
+.site-settings-scope .bg-blackburn-black.text-gold.py-5 .lead {
+  color: var(--nugget-ink-soft) !important;
+  font-family: var(--nugget-body);
+  font-weight: 800;
+  line-height: 1.55;
+  max-width: 660px;
+}
+
+.site-settings-scope .bg-blackburn-black.text-gold.py-5 .lead.small {
+  color: var(--nugget-orange-deep) !important;
+  font-family: var(--nugget-heading);
+  font-weight: 800;
+  opacity: 1 !important;
+}
+
+.hero-mascot-stage {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.56), transparent 28%),
+    repeating-conic-gradient(from -12deg at 50% 50%, rgba(255, 255, 255, 0.24) 0deg 9deg, rgba(255, 174, 0, 0.2) 9deg 18deg),
+    linear-gradient(180deg, #ffe86b 0%, #ffcf1a 54%, #ffae00 100%);
+  border: 4px solid rgba(255, 255, 255, 0.78);
+  border-radius: 30%;
+  box-shadow: 0 20px 42px rgba(129, 72, 0, 0.28), inset 0 -12px 0 rgba(177, 98, 0, 0.16);
+}
+
+.hero-mascot-face {
+  filter: drop-shadow(0 12px 0 rgba(0, 0, 0, 0.22)) drop-shadow(0 18px 18px rgba(112, 56, 0, 0.22));
+}
+
+.category-card,
+.community-category-card,
+.original-value-card,
+.about-feature-panel,
+.contact-form-panel,
+.account-panel,
+.account-benefits,
+.account-stats-grid div,
+.account-profile-card,
+.submission-panel,
+.appearance-settings-card,
+.admin-submissions-card,
+.admin-submission-item,
+.community-nuggets-header,
+.community-nuggets-empty,
+.category-page-intro,
+.category-empty-state,
+.category-faq-card,
+.quote-detail-extra,
+.archive-hero,
+.archive-card,
+.archive-empty,
+.archive-status,
+.privacy-hero,
+.privacy-policy-card,
+.privacy-policy-card > li,
+.editorial-hero,
+.editorial-body,
+.editorial-body section,
+.search-hero,
+.search-empty-state,
+.merch-hero,
+.merch-card,
+.games-hero,
+.game-card,
+.challenge-hero,
+.challenge-card,
+.challenge-results {
+  background: rgba(255, 251, 234, 0.92) !important;
+  border: 2px solid var(--nugget-border) !important;
+  border-radius: 8px !important;
+  box-shadow: var(--nugget-panel-shadow) !important;
+  color: var(--nugget-ink) !important;
+}
+
+.home-archive-carousel,
+.category-quote-card,
+.quote-detail-card,
+.category-faq-card,
+.appearance-preview {
+  border: 2px solid var(--nugget-border) !important;
+  border-radius: 8px !important;
+  box-shadow: var(--nugget-panel-shadow) !important;
+}
+
+.category-quote-card,
+.quote-detail-card {
+  background: var(--nugget-user-bg) !important;
+  color: var(--nugget-user-text) !important;
+}
+
+.shadow-inset {
+  box-shadow: var(--nugget-panel-shadow) !important;
+}
+
+.category-card.rounded-4,
+.community-category-card.rounded-4,
+.category-quote-card.rounded-4,
+.category-faq-card.rounded-4,
+.rounded-4.shadow-inset {
+  border-radius: 8px !important;
+}
+
+.category-card h4,
+.community-category-card h3,
+.original-value-card h3,
+.about-feature-panel h3,
+.account-panel h1,
+.account-benefits h2,
+.submission-panel h1,
+.appearance-settings-card h2,
+.admin-submissions-card h2,
+.home-archive-carousel h2,
+.archive-hero h1,
+.privacy-hero h1,
+.privacy-policy-card h2,
+.editorial-hero h1,
+.editorial-body h2,
+.search-hero h1,
+.merch-hero h1,
+.merch-card h2,
+.games-hero h1,
+.game-card h2,
+.challenge-hero h1,
+.challenge-results h1,
+.category-page-header h2,
+.community-nuggets-header h2,
+.quote-detail-extra h2 {
+  color: var(--nugget-ink) !important;
+  font-family: var(--nugget-heading);
+  font-weight: 800;
+  text-shadow: 0 2px 0 rgba(255, 207, 26, 0.32);
+}
+
+.category-card p,
+.community-category-card p,
+.community-category-card small,
+.original-value-header p,
+.original-value-card p,
+.about-page .lead,
+.about-feature-panel li,
+.contact-page .lead,
+.account-muted,
+.account-benefits li,
+.account-profile-card,
+.admin-submission-item p,
+.admin-submission-item small,
+.admin-reviewed-submissions p,
+.submission-helper,
+.archive-hero p:last-child,
+.archive-card-author,
+.archive-card-note,
+.privacy-hero,
+.privacy-policy-card,
+.privacy-updated,
+.editorial-hero,
+.editorial-body,
+.search-hero,
+.search-empty-state,
+.merch-hero p:not(.challenge-kicker),
+.merch-status,
+.merch-card p,
+.games-hero p:not(.challenge-kicker),
+.game-card p,
+.challenge-hero p:not(.challenge-kicker),
+.challenge-message,
+.challenge-feedback,
+.challenge-share-status {
+  color: var(--nugget-ink-soft) !important;
+}
+
+.category-image-icon,
+.category-card .fs-1.bg-blackburn-dark-yellow,
+.community-category-card .fs-1.bg-blackburn-dark-yellow {
+  align-items: center;
+  background: #fffdf2 !important;
+  border: 2px solid var(--nugget-sun);
+  border-radius: 8px !important;
+  box-shadow: inset 0 -5px 0 rgba(255, 174, 0, 0.18);
+  display: inline-flex;
+  justify-content: center;
+  min-height: 3.75rem;
+  min-width: 3.75rem;
+  padding: 0.25rem;
+}
+
+.category-card .fs-1.bg-blackburn-dark-yellow,
+.community-category-card .fs-1.bg-blackburn-dark-yellow {
+  font-size: 2rem !important;
+}
+
+.home-archive-carousel {
+  background: var(--nugget-user-bg) !important;
+  color: var(--nugget-user-text);
+}
+
+.home-archive-date,
+.home-archive-controls span {
+  color: color-mix(in srgb, var(--nugget-user-text) 76%, transparent) !important;
+}
+
+.home-archive-open-link,
+.community-nuggets-empty a,
+.original-value-card a,
+.submission-panel a,
+.account-mode-toggle,
+.merch-details-button,
+.footer-legal-links a {
+  color: var(--nugget-orange-deep) !important;
+  font-family: var(--nugget-heading);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.home-archive-open-link:hover,
+.community-nuggets-empty a:hover,
+.original-value-card a:hover,
+.submission-panel a:hover,
+.account-mode-toggle:hover,
+.merch-details-button:hover,
+.footer-legal-links a:hover {
+  color: var(--nugget-ink) !important;
+}
+
+.quote-actions button,
+.quote-back-link,
+.account-section-heading button,
+.admin-submission-actions button,
+.challenge-share-link {
+  background: #fffdf2;
+  border: 2px solid rgba(255, 174, 0, 0.46);
+  border-radius: 999px;
+  color: var(--nugget-ink) !important;
+  font-family: var(--nugget-heading);
+  font-weight: 800;
+}
+
+.quote-actions button:hover,
+.quote-back-link:hover,
+.account-section-heading button:hover,
+.admin-submission-actions button:hover,
+.challenge-share-link:hover {
+  background: var(--nugget-card);
+  color: var(--nugget-orange-deep) !important;
+}
+
+.quote-actions button[aria-pressed="true"] {
+  background: var(--nugget-orange) !important;
+  color: #fff !important;
+}
+
+.quote-action-status,
+.category-faq-card h4,
+.account-section-heading h2,
+.account-stats-grid strong,
+.admin-submission-item span,
+.admin-reviewed-submissions summary,
+.challenge-author,
+.challenge-streak,
+.merch-card strong {
+  color: var(--nugget-orange-deep) !important;
+}
+
+.category-faq-card,
+.category-quote-card {
+  border: 2px solid var(--nugget-border) !important;
+}
+
+.category-quote-link:hover .category-quote-text {
+  color: var(--nugget-orange-deep) !important;
+}
+
+.category-quote-author,
+.quote-detail-author,
+.home-archive-quote-link small,
+.appearance-preview small {
+  opacity: 0.82;
+}
+
+.quote-detail-extra {
+  margin-top: 1rem;
+}
+
+.privacy-policy-card ul,
+.privacy-policy-card ol {
+  color: var(--nugget-ink-soft);
+}
+
+.account-success {
+  background: #e1f8d6;
+  color: #1f6b34;
+}
+
+.account-error,
+.merch-error {
+  background: #ffe5dc;
+  color: #a52812;
+}
+
+.admin-submission-item,
+.account-benefits li,
+.account-stats-grid div,
+.account-profile-card,
+.about-feature-panel li,
+.submission-helper,
+.archive-status,
+.game-score-stack span,
+.challenge-status-row span {
+  background: rgba(255, 207, 26, 0.18) !important;
+}
+
+.game-score-stack span,
+.challenge-status-row span {
+  border: 2px solid rgba(255, 174, 0, 0.42);
+  border-radius: 8px;
+  color: var(--nugget-ink) !important;
+}
+
+.challenge-card blockquote,
+.archive-card-text,
+.admin-submission-item h3 {
+  color: var(--nugget-ink) !important;
+}
+
+.challenge-option {
+  background: #fffdf2;
+  border: 2px solid rgba(255, 174, 0, 0.48);
+  border-radius: 8px;
+  color: var(--nugget-ink);
+  font-family: var(--nugget-body);
+  font-weight: 900;
+}
+
+.challenge-option:hover:not(:disabled),
+.challenge-option.is-selected {
+  border-color: var(--nugget-orange);
+}
+
+.challenge-option.is-correct {
+  background: #dcf7cc;
+  border-color: #44a340;
+}
+
+.challenge-option.is-incorrect {
+  background: #ffe1d7;
+  border-color: var(--nugget-red-orange);
+}
+
+.nugget-guide-button {
+  background: radial-gradient(circle at 35% 28%, #fff28a, var(--nugget-sun) 48%, var(--nugget-sun-deep));
+  border-color: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 12px 28px rgba(129, 72, 0, 0.24);
+}
+
+.nugget-guide-hint,
+.nugget-guide-card {
+  background: linear-gradient(180deg, var(--nugget-sun-soft), var(--nugget-sun-deep));
+  color: var(--nugget-ink);
+}
+
+.nugget-guide-hint::after {
+  border-left-color: var(--nugget-sun-deep);
+}
+
+.nugget-guide-message {
+  border: 2px solid rgba(255, 174, 0, 0.36);
+}
+
+.nugget-guide-prompts button {
+  background: var(--nugget-ink);
+  color: #fff;
+}
+
+.nugget-guide-prompts button:hover {
+  background: var(--nugget-orange-deep);
+}
+
+.site-settings-scope footer.bg-blackburn-black {
+  background: var(--nugget-ink) !important;
+  border-top: 5px solid var(--nugget-orange);
+  color: var(--nugget-cream) !important;
+}
+
+.site-settings-scope footer.bg-blackburn-black .text-gold {
+  color: var(--nugget-sun-soft) !important;
+}
+
+.site-settings-scope footer.bg-blackburn-black .footer-legal-links a {
+  color: var(--nugget-cream) !important;
+  text-shadow: none;
+}
+
+.site-settings-scope footer.bg-blackburn-black .footer-legal-links a:hover {
+  color: var(--nugget-sun-soft) !important;
+}
+
+@media (max-width: 991px) {
+  #mainNav .navbar-collapse.show,
+  #mainNav .navbar-collapse.collapsing {
+    background: rgba(255, 248, 223, 0.98);
+    border: 2px solid rgba(255, 106, 0, 0.32);
+    border-radius: 8px;
+    box-shadow: 0 16px 28px rgba(126, 72, 0, 0.16);
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-settings-scope .bg-blackburn-black.text-gold.py-5 {
+    padding-bottom: 1.6rem !important;
+    padding-top: 5.1rem !important;
+  }
+
+  .site-settings-scope .bg-blackburn-black.text-gold.py-5 h1 {
+    font-size: 2.22rem;
+    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.74), 0 5px 0 rgba(255, 106, 0, 0.18);
+  }
+
+  .site-settings-scope .bg-blackburn-black.text-gold.py-5 .lead {
+    font-size: 1.08rem;
+    margin-bottom: 0.95rem !important;
+  }
+
+  .site-settings-scope .bg-blackburn-black.text-gold.py-5 .lead.small {
+    font-size: 0.95rem;
+  }
+
+  .site-settings-scope .bg-blackburn-black.text-gold.py-5 .row {
+    --bs-gutter-y: 1.25rem;
+  }
+
+  .hero-mascot-stage {
+    max-width: 245px;
+    padding: 0.95rem;
+  }
+
+  .navbar-search {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+}
