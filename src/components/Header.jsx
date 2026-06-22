@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import appLogo from '../assets/AppStoreImage.svg'
 import PageMeta from './PageMeta.jsx'
 import normalFace from '../assets/mascot-faces/nugget-normal.png'
 import winkFace from '../assets/mascot-faces/nugget-wink.png'
@@ -93,12 +92,6 @@ export default function Header() {
 
                         
 
-                        <a
-                        href="https://apps.apple.com/us/app/thedailynugget/id6745912191"
-                        className="d-inline-block"
-                        >
-                            <img className="img-fluid" style={{ maxWidth: 180 }} src={appLogo} alt="App Store" />
-                        </a>
                     </div>
 
                     {/* Hero image */}
