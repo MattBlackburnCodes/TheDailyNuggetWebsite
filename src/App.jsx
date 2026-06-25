@@ -25,6 +25,7 @@ import SurvivalMode from './components/Pages/SurvivalMode.jsx'
 import RealOrFakeMode from './components/Pages/RealOrFakeMode.jsx'
 import EditorialPage from './components/Pages/EditorialPage.jsx'
 import SearchResults from './components/Pages/SearchResults.jsx'
+import AdMobBanner from './components/AdMobBanner.jsx'
 
 
 export default function App() {
@@ -85,6 +86,7 @@ export default function App() {
         <Route path="/explore/:categoryKey" element={<ExploreCategory />} />
       </Routes>
       <NuggetGuide />
+      <AdMobBanner />
       <Footer />
     </Router>
   );

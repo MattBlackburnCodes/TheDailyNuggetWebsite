@@ -4,6 +4,14 @@
   padding: 0;
 }
 
+:root {
+  --admob-banner-height: 0px;
+}
+
+body.has-admob-banner {
+  padding-bottom: var(--admob-banner-height);
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -261,7 +269,7 @@
 }
 
 .nugget-guide {
-  bottom: 1.1rem;
+  bottom: calc(1.1rem + var(--admob-banner-height, 0px));
   pointer-events: none;
   position: fixed;
   right: 1.1rem;

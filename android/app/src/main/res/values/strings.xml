@@ -4,4 +4,5 @@
     <string name="title_activity_main">TheDailyNugget.app</string>
     <string name="package_name">com.thedailynugget.app</string>
     <string name="custom_url_scheme">com.thedailynugget.app</string>
+    <string name="admob_app_id">ca-app-pub-7577853474425204~1078106504</string>
 </resources>
